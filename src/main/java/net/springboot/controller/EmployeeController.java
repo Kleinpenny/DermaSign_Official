@@ -1,10 +1,11 @@
-package net.javaguides.springboot.controller;
+package net.springboot.controller;
 
 import java.util.List;
 
+import net.springboot.model.Employee;
+import net.springboot.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,21 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import net.javaguides.springboot.model.Employee;
-import net.javaguides.springboot.service.EmployeeService;
-
-@Controller
+@org.springframework.stereotype.Controller
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
-	
-	// display list of employees
-	@GetMapping("/")
+	@GetMapping("/employee")
 	public String viewHomePage(Model model) {
-		return findPaginated(1, "firstName", "asc", model);		
+		return findPaginated(1, "firstName", "asc", model);
 	}
-	
+
 	@GetMapping("/showNewEmployeeForm")
 	public String showNewEmployeeForm(Model model) {
 		// create model attribute to bind form data
@@ -81,6 +77,6 @@ public class EmployeeController {
 		model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 		
 		model.addAttribute("listEmployees", listEmployees);
-		return "index";
+		return "employee";
 	}
 }

@@ -1,10 +1,10 @@
-package net.javaguides.springboot;
+package net.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootThymeleafCrudWebAppApplicationTests {
+class SpringbootThymeleafApplicationTests {
 
 	@Test
 	void contextLoads() {
