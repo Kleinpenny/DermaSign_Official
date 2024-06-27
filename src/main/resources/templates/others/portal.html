@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{homepage.title}">STARTSEITE | DermaSign</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/alt1/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+<body>
+<form class="form-signin">
+<h1 class="h3 mb-3 font-weight-normal" th:text="#{homepage.tip}">不知道要什么</h1>
+<input type="text" class="form-control" th:text="#{homepage.username}" placeholder="Username..." required="" autofocus="">
+
+<a class="btn btn-sm" th:href="@{/(localeData='de_DE')}">DE</a>
+<a class="btn btn-sm" th:href="@{/(localeData='en_US')}">EN</a>
+    <a class="btn btn-sm" th:href="@{/employee}">TEST</a>
+    <a class="btn btn-sm" th:href="@{/product}">Product</a>
+</form>
+</body>
+</html>
