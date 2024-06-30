@@ -70,7 +70,7 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="homepage.html" th:href="@{/}"> <img src="/img/DermaSign/dermasign_logo.png" alt="#" width="178" height="37"></a>
+                            <a href="homepage.html" th:href="@{/}"> <img src="/img/DermaSign/dermasign_logo.png" alt="#" width=173 height=25></a>
                         </div>
                         <!-- End Logo -->
                         <!-- Mobile Nav -->
@@ -86,11 +86,12 @@
                                     <li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
                                     <li><a href="#" th:href="@{/news}" th:text="#{Header.news}">News </a></li>
                                     <li><a href="#" th:href="@{/contact}" th:text="#{Header.contact}">Contact </a></li>
-                                    <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="#" th:href="@{/404}">404 Error</a></li>
-                                        </ul>
-                                    </li>
+<!--                                    <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>-->
+<!--                                        <ul class="dropdown">-->
+<!--                                            <li><a href="#" th:href="@{/404}">404 Error</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+
                                 </ul>
                             </nav>
                         </div>
@@ -106,43 +107,11 @@
 
 <!-- Slider Area -->
 <section class="slider">
-    <div class="hero-slider">
-        <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('/img/DermaSign/homepage_slide_1.png')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="text">
-                            <h1><span>ORGANISCHE HIDROX &reg;</span> SERIES</h1>
-                            <p th:text="#{Homepage.slider1.descrption1}">Verbesserung der Schutz- und Absorptionsaktivität Patentierte Formulierung für intolerante Haut. </p>
-                            <p th:text="#{Homepage.slider1.descrption2}">Verbesserung der Schutz- und Absorptionsaktivität Patentierte Formulierung für intolerante Haut. </p>
-                            <div class="button">
-                                <a href="#" th:href="@{/static}" class="btn btn-primary" th:text="#{Homepage.slider1.btn}">Jetzt Entdecken</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Single Slider -->
-        <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('/img/DermaSign/homepage_slide_2.png')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="text">
-                            <h1><span>ORGANISCHE HIDROX&reg;</span> SERIES</h1>
-                            <p th:text="#{Homepage.slider1.descrption1}">Verbesserung der Schutz- und Absorptionsaktivität Patentierte Formulierung für intolerante Haut. </p>
-                            <p th:text="#{Homepage.slider1.descrption2}">Verbesserung der Schutz- und Absorptionsaktivität Patentierte Formulierung für intolerante Haut. </p>
-                            <div class="button">
-                                <a href="#" th:href="@{/static}" class="btn btn-primary" th:text="#{Homepage.slider1.btn}">Jetzt Entdecken</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Start End Slider -->
+    <div id="videoContainer">
+        <video id="backgroundVideo" autoplay muted loop>
+            <source src="/video/3181892-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 </section>
 <!--/ End Slider Area -->

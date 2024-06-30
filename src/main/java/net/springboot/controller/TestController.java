@@ -21,4 +21,8 @@ public class TestController {
     public String test_shop(Model model) {
         return "/others/shopcategorie";
     }
+    @GetMapping("/index.html")
+    public String test_idx(Model model) {
+        return "/index";
+    }
 }
