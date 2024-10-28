@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Document title -->
-	<title th:text="#{Contact.title}">DermaSign</title>
+	<title th:text="#{Edu.title}">DermaSign</title>
 
 	<!-- Favicon -->
 	<link rel="icon" href="#">
@@ -46,7 +46,6 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/responsive.css">
 	<link rel="stylesheet" href="/css/udf.css">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
 	<!-- AOS CSS -->
 	<link href="/css/aos.css" rel="stylesheet">
@@ -66,8 +65,8 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-5 col-12">
 					<ul class="top-link">
-						<li><a th:href="@{/contact(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
-						<li><a th:href="@{/contact(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
+						<li><a th:href="@{/edu(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
+						<li><a th:href="@{/edu(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -148,7 +147,7 @@
 									</li>
 									<li><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
 									</li>
-									<li><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
+									<li class="active"><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
 									<li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
 									<!--											<li><a href="#" th:href="@{/news}" th:text="#{Header.news}">News </a></li>-->
 								</ul>
@@ -169,109 +168,172 @@
 </header>
 <!-- End Header Area -->
 
-
-<!-- Start Contact Us -->
-<section class="contact-us section">
-	<div class="container">
-		<div class="inner">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="contact-us-left">
-						<!--Start Google-map -->
-						<div id="myMap"></div>
-						<!--/End Google-map -->
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="contact-us-form">
-						<h2 th:text="#{Contact.text1}">Contact With Us</h2>
-						<p th:text="#{Contact.text2}">If you have any questions please feel free to contact with us.</p>
-						<!-- Form -->
-						<form class="form" method="post" action="/send-email">
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="name" th:placeholder="#{Contact.text3}" placeholder="Name" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="email" name="email" th:placeholder="#{Contact.text4}" placeholder="Email" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="phone" th:placeholder="#{Contact.text5}" placeholder="Phone" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="subject" th:placeholder="#{Contact.text6}" placeholder="Subject" required="">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="form-group">
-										<textarea name="message" th:placeholder="#{Contact.text7}" placeholder="Your Message" required=""></textarea>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group login-btn">
-										<button class="btn" type="submit" th:text="#{Contact.text8}">Send</button>
-									</div>
-									<div class="checkbox">
-										<label class="checkbox-inline" for="2">
-											<input name="news" id="2" type="checkbox">
-											<span th:text="#{Contact.text9}">Do you want to subscribe to our Newsletter?</span>
-										</label>
-									</div>
-								</div>
-							</div>
-						</form>
-						<!--/ End Form -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="contact-info">
-			<div class="row">
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-					<div class="single-info">
-						<i class="icofont icofont-ui-call"></i>
-						<div class="content">
-							<h3>+49(0) 15164659752</h3>
-							<p>info@company.com</p>
-						</div>
-					</div>
-				</div>
-				<!--/End single-info -->
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-				</div>
-				<!--/End single-info -->
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-					<div class="single-info">
-						<i class="icofont-google-map"></i>
-						<div class="content">
-							<h3>2 Fir e Brigade Road</h3>
-							<p>Chittagonj, Lakshmipur</p>
-						</div>
-					</div>
-				</div>
-				<!--/End single-info -->
-			</div>
+<!-- Slider Area -->
+<section class="slider">
+	<div id="videoContainer">
+		<img src="/img/Education/edu.png" alt="#" style="filter: grayscale(100%);">
+		<div id="textOverlay">
+			<p style="color: black;" th:text="#{Edu.slider.text1}">DERMASIGN PRODUCTS</p>
+			<p style="color: black;" th:text="#{Edu.slider.text2}">Educational Corner - Skincare Tech</p>
 		</div>
 	</div>
 </section>
-<!--/ End Contact Us -->
+<!--/ End Slider Area -->
+
+<!-- Single News -->
+<section class="news-single section">
+	<div class="container">
+		<div class="col-12">
+			<div class="news-text mt-5">
+				<h2 style="color:dimgray; text-align: center;">
+					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
+					<span th:utext="#{Edu.newsSingle.text1}">Skin Care Concept</span>
+				</h2>
+				<hr>
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-md-6 col-12 text-center">
+						<p id="eduText" th:text="#{Edu.newsSingle.text2}">
+							Our skincare philosophy is grounded in the natural biology of the skin, a living and precise organ.
+							We believe the foundation must start with repairing and strengthening the skin’s barrier.
+						</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-12 text-center">
+						<div class="single-image">
+							<img src="/img/Education/金字塔理念1.png" alt="#" class="img-fluid">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="news-text mt-5">
+				<h2 style="color:dimgray; text-align: center; margin-bottom: 30px;">
+					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
+					<span th:utext="#{Edu.newsSingle.text3}">Core Advantage</span>
+				</h2>
+				<hr>
+				<table class="custom-table">
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="/img/Education/promise.png" alt="No harmful additives" class="table-image" width="100" height="100">
+						</td>
+						<td><p id="eduText" th:text="#{Edu.newsSingle.text4}">Free of steroids, preservatives irritant to skin, propylene glycol, spices, alcohol, mineral oils, petroleum, artificial colors and irritating foaming agents. Some products contain 0% emulsifiers.</p></td>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="/img/Education/gmp.png" alt="Manufactured by GMP standard facilities" class="table-image" width="100" height="100">
+						</td>
+						<td><p id="eduText" th:text="#{Edu.newsSingle.text5}">For more than 50 years, we have strictly adhered to international "Good Manufacturing Practice" (GMP) strictly guarantee product quality.</p></td>
+					</tr>
+					<tr>
+						<td style="text-align: center; vertical-align: middle;">
+							<img src="/img/Education/safe.png" alt="Safe enough for pregnant women and children" class="table-image" width="100" height="100">
+						</td>
+						<td><p id="eduText" th:text="#{Edu.newsSingle.text6}">Suitable for all skin types. All the products and ingredients are safe enough to be used by pregnant women, children and people with sensitive skins.</p></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="news-text mt-5">
+				<h2 style="color:dimgray; text-align: center;">
+					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
+					<span th:utext="#{Edu.newsSingle.text7}">Core Technology</span>
+				</h2>
+				<hr>
+
+				<div class="row align-items-center mt-5">
+					<div class="col-lg-12 col-md-12 col-12 text-left">
+						<div style="background-color: #037db0; border-radius: 50%;padding: 5px 15px;margin-right: 10px;display: inline-block; color: white">NO.1</div>
+						<h5 style="display: inline-block; color: #037db0; margin-bottom: 10px" th:text="#{Edu.newsSingle.text8}">
+							<strong>DLMS Technology</strong>
+						</h5>
+						<br>
+						<p style="font-size:16px" th:text="#{Edu.newsSingle.text9}">
+							The realization of zero emulsification process to avoid irritation and interference is a prerequisite technology to simulate natural keratin barrier.
+						</p>
+					</div>
+				</div>
+				<br><br>
+				<div class="row align-items-center">
+					<div class="col-lg-12 col-md-12 col-12 text-center">
+						<div class="single-image">
+							<img src="/img/Education/无乳化技术5.png" alt="#">
+						</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center mt-5">
+					<div class="col-lg-12 col-md-12 col-12 text-left">
+						<div style="background-color: #037db0; border-radius: 50%;padding: 5px 15px;margin-right: 10px;display: inline-block; color: white">NO.2</div>
+						<h5 style="display: inline-block; color: #037db0; margin-bottom: 10px" th:text="#{Edu.newsSingle.text10}">
+							<strong>HIDROX ® Patented Hydroxytyrosol Extraction Technology</strong>
+						</h5>
+						<br>
+						<p style="font-size:16px" th:text="#{Edu.newsSingle.text11}">
+							Help to improve the third generation of barrier repair technology, suitable for unstable skin caused by endogenous factors.
+						</p>
+					</div>
+				</div>
+				<div class="row mt-5" style="display: flex; justify-content: center; flex-wrap: wrap;">
+					<div class="col-lg-6 col-md-12 col-12 image-padding" style="display: flex; justify-content: center;">
+						<img src="/img/Education/羟基酪醇配方技术.jpg" alt="#" style="display: block; margin: auto;">
+					</div>
+					<div class="col-lg-6 col-md-12 col-12 image-padding" style="display: flex; justify-content: center;">
+						<img src="/img/Education/羟基酪醇配方技术8.jpg" alt="#" style="display: block; margin: auto;">
+					</div>
+				</div>
+
+				<div class="row align-items-center mt-5">
+					<div class="col-lg-12 col-md-12 col-12 text-left">
+						<div style="background-color: #037db0; border-radius: 50%;padding: 5px 15px;margin-right: 10px;display: inline-block; color: white">NO.3</div>
+						<h5 style="display: inline-block; color: #037db0; margin-bottom: 10px" th:text="#{Edu.newsSingle.text12}">
+							<strong>Liposome  Technology</strong>
+						</h5>
+						<p style="font-size:16px" th:text="#{Edu.newsSingle.text13}">
+							It uses physiological components to promote penetration, maintain the benign transmission of cell signals, promote repair, and is efficient and safe.
+						</p>
+					</div>
+				</div>
+				<br><br>
+				<div class="row align-items-center">
+					<div class="col-lg-12 col-md-12 col-12 text-left">
+						<div class="single-image">
+							<img src="/img/Education/微智囊技术.png" alt="#" style="max-width: 100%; max-height: 25vh; object-fit: cover;">
+						</div>
+					</div>
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-lg-12 col-md-12 col-12 text-left">
+						<div style="background-color: #037db0; border-radius: 50%;padding: 5px 15px;margin-right: 10px;display: inline-block; color: white">NO.4</div>
+						<h5 style="display: inline-block; color: #037db0; margin-bottom: 10px" th:text="#{Edu.newsSingle.text14}">
+							<strong>Pure Factor Extract Technology</strong>
+						</h5>
+						<br>
+						<p style="font-size:16px" th:text="#{Edu.newsSingle.text15}">
+							Different from the traditional full-process green purification method.<br>
+							This approach eliminates impurities at the source, ensuring both the effectiveness and safety of key ingredients.
+						</p>
+					</div>
+				</div>
+				<br><br>
+				<div class="row justify-content-center">
+					<div class="col-lg-6 col-md-6 col-12 text-center">
+						<img src="/img/Education/纯因子提取技术3.png" alt="#" class="img-fluid" style="max-width: 100%; max-height: 30vh; object-fit: fill;">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!--/ End Single News -->
 
 
 <!-- Footer Area -->
 <footer id="footer" class="footer">
 	<!-- Footer Top -->
 	<div class="footer-top">
-		<div class="container" >
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="single-footer">
@@ -374,57 +436,51 @@
 </footer>
 <!--/ End Footer Area -->
 
-<!-- jquery Min JS -->
-<script src="/js/jquery.min.js"></script>
-<!-- jquery Migrate JS -->
-<script src="/js/jquery-migrate-3.0.0.js"></script>
-<!-- jquery Ui JS -->
-<script src="/js/jquery-ui.min.js"></script>
-<!-- Easing JS -->
-<script src="/js/easing.js"></script>
-<!-- Color JS -->
-<script src="/js/colors.js"></script>
-<!-- Popper JS -->
-<script src="/js/popper.min.js"></script>
-<!-- Bootstrap Datepicker JS -->
-<script src="/js/bootstrap-datepicker.js"></script>
-<!-- Jquery Nav JS -->
-<script src="/js/jquery.nav.js"></script>
-<!-- Slicknav JS -->
-<script src="/js/slicknav.min.js"></script>
-<!-- ScrollUp JS -->
-<script src="/js/jquery.scrollUp.min.js"></script>
-<!-- Niceselect JS -->
-<script src="/js/niceselect.js"></script>
-<!-- Tilt Jquery JS -->
-<script src="/js/tilt.jquery.min.js"></script>
-<!-- Owl Carousel JS -->
-<script src="/js/owl-carousel.js"></script>
-<!-- counterup JS -->
-<script src="/js/jquery.counterup.min.js"></script>
-<!-- Steller JS -->
-<script src="/js/steller.js"></script>
-<!-- Wow JS -->
-<script src="/js/wow.min.js"></script>
-<!-- Magnific Popup JS -->
-<script src="/js/jquery.magnific-popup.min.js"></script>
-<!-- Counter Up CDN JS -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="/js/bootstrap.min.js"></script>
-<!-- Main JS -->
-<script src="/js/main.js"></script>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-	// 设置地图的中心点为 Frankfurt (Main) Hbf
-	var map = L.map('myMap').setView([50.107145, 8.663789], 13); // 设置地图中心点和缩放级别
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19
-	}).addTo(map);
+	<!-- jquery Min JS -->
+	<script src="/js/jquery.min.js"></script>
+	<!-- jquery Migrate JS -->
+	<script src="/js/jquery-migrate-3.0.0.js"></script>
+	<!-- jquery Ui JS -->
+	<script src="/js/jquery-ui.min.js"></script>
+	<!-- Easing JS -->
+	<script src="/js/easing.js"></script>
+	<!-- Color JS -->
+	<script src="/js/colors.js"></script>
+	<!-- Popper JS -->
+	<script src="/js/popper.min.js"></script>
+	<!-- Bootstrap Datepicker JS -->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<!-- Jquery Nav JS -->
+	<script src="/js/jquery.nav.js"></script>
+	<!-- Slicknav JS -->
+	<script src="/js/slicknav.min.js"></script>
+	<!-- ScrollUp JS -->
+	<script src="/js/jquery.scrollUp.min.js"></script>
+	<!-- Niceselect JS -->
+	<script src="/js/niceselect.js"></script>
+	<!-- Tilt Jquery JS -->
+	<script src="/js/tilt.jquery.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="/js/owl-carousel.js"></script>
+	<!-- counterup JS -->
+	<script src="/js/jquery.counterup.min.js"></script>
+	<!-- Steller JS -->
+	<script src="/js/steller.js"></script>
+	<!-- Wow JS -->
+	<script src="/js/wow.min.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<!-- Counter Up CDN JS -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- Main JS -->
+	<script src="/js/main.js"></script>
 
-	// 在 Frankfurt (Main) Hbf 添加一个标记
-	var marker = L.marker([50.107145, 8.663789]).addTo(map); // 添加一个标记
-</script>
+	<script src="/js/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 </body>
 </html>

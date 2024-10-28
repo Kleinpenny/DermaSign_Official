@@ -1,62 +1,59 @@
 <!doctype html>
 <html lang="de">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<!-- Document title -->
-	<title th:text="#{WebsiteTitle}">DermaSign</title>
-	<!-- Stylesheets & Fonts -->
-	<!-- Favicon -->
-	<link rel="icon" href="/img/alt1/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="/css/alt1/style.css">
+	<!-- Document title -->
+	<title th:text="#{404.title}">DermaSign</title>
+
+	<!-- Favicon -->
+	<link rel="icon" href="#">
+
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
-		  rel="stylesheet">
-	<!-- Plugins Stylesheets -->
-	<link rel="stylesheet" href="/css/font-awesome/font-awesome.css">
-	<link rel="stylesheet" href="/css/bootstrap.css">
-	<link rel="stylesheet" href="/css/aos/aos.css">
-	<link rel="stylesheet" href="/css/swiper/swiper.css">
-	<link rel="stylesheet" href="/css/lightgallery.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<!-- Nice Select CSS -->
+	<link rel="stylesheet" href="/css/nice-select.css">
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
 	<!-- icofont CSS -->
-	<link rel="stylesheet" href="/css/alt1/icofont.css">
+	<link rel="stylesheet" href="/css/icofont.css">
+	<!-- Slicknav -->
+	<link rel="stylesheet" href="/css/slicknav.min.css">
 	<!-- Owl Carousel CSS -->
 	<link rel="stylesheet" href="/css/owl-carousel.css">
-	<!-- Template Stylesheet -->
-	<link rel="stylesheet" href="/css/style.css">
-	<!-- Responsive Stylesheet -->
-	<link rel="stylesheet" href="/css/responsive.css">
-	<!-- Slick--navigation -->
-	<link rel="stylesheet" href="/css/alt1/slicknav.min.css">
+	<!-- Datepicker CSS -->
+	<link rel="stylesheet" href="/css/datepicker.css">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="/css/animate.min.css">
+	<!-- Magnific Popup CSS -->
+	<link rel="stylesheet" href="/css/magnific-popup.css">
+
 	<!-- Medipro CSS -->
-	<link rel="stylesheet" href="/css/alt1/normalize.css">
-	<link rel="stylesheet" href="/css/alt1/responsive.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/responsive.css">
+	<link rel="stylesheet" href="/css/udf.css">
+
 </head>
 <body>
 
 <!-- Header Area -->
-<header class="header" >
+<header class="header">
 	<!-- Topbar -->
 	<div class="topbar">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-5 col-12">
-					<!-- Contact -->
 					<ul class="top-link">
-						<li><a th:href="@{/404(localeData='de_DE')}">DE</a></li>
-						<li><a th:href="@{/404(localeData='en_US')}">EN</a></li>
+						<li><a th:href="@{/404(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
+						<li><a th:href="@{/404(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
 					</ul>
-					<!-- End Contact -->
-				</div>
-				<div class="col-lg-6 col-md-7 col-12">
-					<!-- Top Contact -->
-					<ul class="top-contact">
-						<li><i class="fa fa-shopping-cart"></i><a href="#" th:href="@{/shop}">SHOP</a></li>
-						<li><i class="fa fa-user"></i><a href="#">LOGIN</a></li>
-					</ul>
-					<!-- End Top Contact -->
 				</div>
 			</div>
 		</div>
@@ -70,7 +67,8 @@
 					<div class="col-lg-3 col-md-3 col-12">
 						<!-- Start Logo -->
 						<div class="logo">
-							<a href="homepage.html" th:href="@{/}"> <img src="/img/DermaSign/dermasign_logo.png" alt="#" width="178" height="37"></a>
+							<a href="homepage.html" th:href="@{/}"><img src="/img/Homepage/dermasign_logo.png" alt="#"
+																		width=175 height=25></a>
 						</div>
 						<!-- End Logo -->
 						<!-- Mobile Nav -->
@@ -82,19 +80,71 @@
 						<div class="main-menu">
 							<nav class="navigation">
 								<ul class="nav menu">
-									<li><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
-									<li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
-									<li><a href="#" th:href="@{/news}" th:text="#{Header.news}">News </a></li>
-									<li><a href="#" th:href="@{/contact}" th:text="#{Header.contact}">Contact </a></li>
-									<li class="active"><a href="#">Pages <i class="icofont-rounded-down"></i></a>
+									<li ><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
+									<li>
+										<a th:href="@{/products}">
+											<span th:utext="#{Header.product}"></span>
+											<i class="icofont-rounded-down"></i>
+										</a>
+										<div class="dropdown-background"></div>
 										<ul class="dropdown">
-											<li><a href="#" th:href="@{/404}">404 Error</a></li>
+											<!-- 第一列：Product Type -->
+											<div class="category-column">
+												<div class="category-title" style=" color: black; font-size: 1.25em" th:text="#{Header.category1}">Product Type</div>
+												<ul class="products-list" th:with="text1=#{Header.category1}">
+													<li th:with="text2=#{Header.category1.type1}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Professional Clean&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Professional Clean</a></li>
+													<li th:with="text2=#{Header.category1.type2}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Refreshing and Hydrating&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Refreshing and Hydrating</a></li>
+													<li th:with="text2=#{Header.category1.type3}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Eye Care&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Eye Care</a></li>
+													<li th:with="text2=#{Header.category1.type4}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Moisturizing Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Moisturizing Essence</a></li>
+													<li th:with="text2=#{Header.category1.type5}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Acne Removing Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Acne Removing Essence</a></li>
+													<li th:with="text2=#{Header.category1.type6}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Repair Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Repair Essence</a></li>
+													<li th:with="text2=#{Header.category1.type7}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Anti-aging Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-aging Essence</a></li>
+													<li th:with="text2=#{Header.category1.type8}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Repair Cream&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Repair Cream</a></li>
+													<li th:with="text2=#{Header.category1.type9}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Conditioning Mask&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Conditioning Mask</a></li>
+													<li th:with="text2=#{Header.category1.type10}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Sun Protection&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Sun Protection</a></li>
+												</ul>
+											</div>
+
+											<!-- 第二列：Skin Problem -->
+											<div class="category-column">
+												<div class="category-title" style="color: black; font-size: 1.25em" th:text="#{Header.category2}">Skin Problem</div>
+												<ul class="skin-concern-list" th:with="text1=#{Header.category2}">
+													<li th:with="text2=#{Header.category2.type1}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Sensitive&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Sensitive</a></li>
+													<li th:with="text2=#{Header.category2.type2}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Acne&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Acne</a></li>
+													<li th:with="text2=#{Header.category2.type3}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Stain&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Stain</a></li>
+													<li th:with="text2=#{Header.category2.type4}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Dryness&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Dryness</a></li>
+													<li th:with="text2=#{Header.category2.type5}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Anti-aging&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-aging</a></li>
+												</ul>
+											</div>
+
+											<!-- 第三列：Nursing Stage -->
+											<div class="category-column">
+												<div class="category-title" style="color: black; font-size: 1.25em" th:text="#{Header.category3}">Nursing Stage</div>
+												<ul class="ingredients-list" th:with="text1=#{Header.category3}">
+													<li th:with="text2=#{Header.category3.type1}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Barrier Repair&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Barrier Repair</a></li>
+													<li th:with="text2=#{Header.category3.type2}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Verbesserung&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Verbesserung</a></li>
+													<li th:with="text2=#{Header.category3.type3}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Optimierung&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Optimierung</a></li>
+													<li th:with="text2=#{Header.category3.type4}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Anti-Aging&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-Aging</a></li>
+												</ul>
+											</div>
 										</ul>
+
+
 									</li>
+									<li><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
+									</li>
+									<li><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
+									<li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
+									<!--											<li><a href="#" th:href="@{/news}" th:text="#{Header.news}">News </a></li>-->
 								</ul>
 							</nav>
 						</div>
 						<!--/ End Main Menu -->
+					</div>
+					<div class="col-lg-2 col-12">
+						<div class="get-quote">
+							<a href="#" th:href="@{/contact}" th:text="#{Header.contact}" class="btn">CONTACT</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -104,7 +154,6 @@
 </header>
 <!-- End Header Area -->
 
-
 <!-- Error Page -->
 <section class="error-page section">
 	<div class="container">
@@ -112,111 +161,95 @@
 			<div class="col-lg-6 offset-lg-3 col-12">
 				<!-- Error Inner -->
 				<div class="error-inner">
-					<h1>404<span>Oop's  sorry we can't find that page!</span></h1>
-					<p>Aenean eget sollicitudin lorem, et pretium felis. Nullam euismod diam libero, sed dapibus leo laoreet ut. Suspendisse potenti. Phasellus urna lacus</p>
-					<form class="search-form">
-						<input placeholder="Search from Here" type="text">
-						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
-					</form>
+					<h1 th:text="#{error.text1}">404<span th:text="#{error.text2}">Oop's sorry we can't find that page!</span></h1>
+					<p th:text="#{error.text3}">It looks like nothing was found at this location. Please try another page.</p>
 				</div>
 				<!--/ End Error Inner -->
 			</div>
 		</div>
 	</div>
 </section>
+
 <!--/ End Error Page -->
 
 
 <!-- Footer Area -->
-<footer id="footer" class="footer ">
+<footer id="footer" class="footer">
 	<!-- Footer Top -->
-	<div class="footer-top">
-		<div class="container">
+	<div class="footer-top" >
+		<div class="container" >
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-footer" data-aos="fade-up" data-aos-delay="0">
-						<h2>About Us</h2>
-						<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+					<div class="single-footer">
+						<h2 th:text="#{Home.footer.aboutUs.title}">About Us</h2>
+						<p th:text="#{Home.footer.aboutUs.text}">We have been working on skin barrier repair for more than 50 years, and have found a way to solve skin problems and keep young with excellent results.</p>
 						<!-- Social -->
 						<ul class="social">
-							<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="icofont-facebook"></i></a></li>
+							<li><a href="#"><i class="icofont-google-plus"></i></a></li>
+							<li><a href="#"><i class="icofont-twitter"></i></a></li>
+							<li><a href="#"><i class="icofont-vimeo"></i></a></li>
+							<li><a href="#"><i class="icofont-pinterest"></i></a></li>
 						</ul>
 						<!-- End Social -->
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-footer f-link" data-aos="fade-up" data-aos-delay="0">
-						<h2>Quick Links</h2>
+					<div class="single-footer f-link">
+						<h2 th:text="#{Home.footer.quickLinks.title}">Quick Links</h2>
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<ul>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
+									<li><a href="#" th:href="@{/}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.home}">Home</span></a></li>
+									<li><a href="#" th:href="@{/about}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.aboutUs}">About Us</span></a></li>
+									<li><a href="#" th:href="@{/products}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.products}">Products</span></a></li>
+									<li><a href="#" th:href="@{/blogs-overview}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.blogs}">Blogs</span></a></li>
 								</ul>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12">
 								<ul>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-									<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+									<li><a href="#" th:href="@{/pro}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.forPro}">For Pro</span></a></li>
+									<li><a href="#" th:href="@{/edu}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.education}">Education</span></a></li>
+									<li><a href="#" th:href="@{/contact}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.contactUs}">Contact Us</span></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-footer contact-widget" data-aos="fade-up" data-aos-delay="0">
-						<h2>Contact Us</h2>
-						<p>By subscribing to our mailing list you will always be update with the latest news from
-							us.
-						</p>
+					<div class="single-footer">
+						<h2 th:text="#{Home.footer.contactUs.title}">Contact Us</h2>
+						<p th:text="#{Home.footer.contactUs.text}">We are committed to ensuring your satisfaction and are ready to offer guidance, information, and support every step of the way.</p>
+						<br>
 						<div class="media">
-							<i class="fa fa-map-marker"></i>
+							<i class="fa fa-map-marker"> </i>
 							<div class="media-body ml-3">
-								<h6>Address</h6>
-								Level 13, 2 Elizabeth St,<br>
-								Melbourne, Victoria 3000 Australia
+								<h6 style="color: white;" th:text="#{Home.footer.contactUs.addressTitle}">Address</h6>
+								<span >Monheimsallee 72, Victoria 3000 Australia</span >
 							</div>
 						</div>
 						<div class="media">
 							<i class="fa fa-envelope-o"></i>
 							<div class="media-body ml-3">
-								<h6>Have any questions?</h6>
-								<a href="mailto:support@steelthemes.com">Support@Steelthemes.com</a>
+								<h6 style="color: white;" th:text="#{Home.footer.contactUs.questionsTitle}">Have any questions?</h6>
+								<a href="mailto:dermasign@outlook.com" >dermasign@outlook.com</a>
 							</div>
 						</div>
 						<div class="media">
 							<i class="fa fa-phone"></i>
 							<div class="media-body ml-3">
-								<h6>Call us & Hire us</h6>
-								<a href="tel:+610791803458"> +61 (0) 7 9180 3458</a>
-							</div>
-						</div>
-						<div class="media">
-							<i class="fa fa-fax"></i>
-							<div class="media-body ml-3">
-								<h6>Fax</h6>
-								<a href="fax:911889047521432">(91) 188904752 1432</a>
+								<h6 style="color: white;" th:text="#{Home.footer.contactUs.phoneTitle}">Call us</h6>
+								<a href="tel:+4915164659752" > +49 (0) 151 6465 9752</a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
-					<div class="single-footer" data-aos="fade-up" data-aos-delay="0">
-						<h2>Newsletter</h2>
-						<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-						<form action="/send-email" method="get" target="_blank" class="newsletter-inner">
-							<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-								   onblur="this.placeholder = 'Your email address'" required="" type="email">
+					<div class="single-footer">
+						<h2 th:text="#{Home.footer.newsletter.title}">Newsletter</h2>
+						<p th:text="#{Home.footer.newsletter.text}">By subscribing to our mailing list you will always be updated with the latest news from us.</p>
+						<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+							<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
 							<button class="button"><i class="icofont icofont-paper-plane"></i></button>
 						</form>
 					</div>
@@ -225,47 +258,67 @@
 		</div>
 	</div>
 	<!--/ End Footer Top -->
-
 	<!-- Copyright -->
-	<div class="foot-note">
+	<div class="copyright">
 		<div class="container">
-			<div class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
-				<p class="mb-0" data-aos="fade-right" data-aos-offset="0">&copy; 2024 All Rights Reserved. Design by <a href="https://www.linkedin.com/in/yixin-peng-babaa81ba/" target="_blank" class="fh5-link">Yixin Peng</a></p>
-				<p class="mb-0" data-aos="fade-left" data-aos-offset="0"><a href="#" color="white">Terms Of Use</a>
-					<a href="#" th:color="white">Privacy & Security Statement</a></p>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-12">
+					<div class="copyright-content" style="display: flex; justify-content: space-between; align-items: center;">
+						<p class="mb-0">&copy; 2024 All Rights Reserved. Design by
+							<a href="https://www.linkedin.com/in/yixin-peng-babaa81ba/" target="_blank" class="fh5-link">Yixin Peng</a>
+						</p>
+						<p class="mb-0">
+							<a href="#" style="color: white;" th:href="@{/termOfUse}" th:text="#{Home.footer.termsOfUse}">Terms Of Use</a>
+							<a href="#" style="color: white; margin-left: 15px;" th:href="@{/datenschutz}" th:text="#{Home.footer.privacySecurity}">Privacy & Security Statement</a>
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="copyright">
 	</div>
 	<!--/ End Copyright -->
 </footer>
 <!--/ End Footer Area -->
 
-<!--jQuery-->
-<script src="/js/jquery-3.3.1.js"></script>
-<!--Plugins-->
-<script src="/js/bootstrap.bundle.js"></script>
-<script src="/js/swiper.min.js"></script>
-<script src="/js/lightgallery-all.min.js"></script>
-<!--Template Script-->
-<script src="/js/main.js"></script>
-<!-- Main JS -->
-<script src="/js/template.js"></script>
-
-<!-- 網頁特效相關 -->
-<script src="/js/aos.js"></script>
-<!-- 下面兩個都是用於控制slider -->
+<!-- jquery Min JS -->
+<script src="/js/jquery.min.js"></script>
 <!-- jquery Migrate JS -->
-<script src="/js/alt1/jquery-migrate-3.0.0.js"></script>
+<script src="/js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="/js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="/js/easing.js"></script>
+<!-- Color JS -->
+<script src="/js/colors.js"></script>
+<!-- Popper JS -->
+<script src="/js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="/js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="/js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="/js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="/js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="/js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="/js/tilt.jquery.min.js"></script>
 <!-- Owl Carousel JS -->
 <script src="/js/owl-carousel.js"></script>
-
-<!-- Magnific Popup JS -->
-<script src="/js/alt1/jquery.magnific-popup.min.js"></script>
-<!-- Slicknav JS -->
-<script src="/js/alt1/slicknav.min.js"></script>
+<!-- counterup JS -->
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="/js/steller.js"></script>
 <!-- Wow JS -->
-<script src="/js/alt1/wow.min.js"></script>
+<script src="/js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="/js/main.js"></script>
 </body>
 </html>

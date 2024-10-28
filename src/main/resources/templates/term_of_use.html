@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Document title -->
+    <title th:text="#{termOfUse.title}">DermaSign</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="#">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cookie&family=Dancing+Script:wght@400..700&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="/css/icofont.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="/css/slicknav.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="/css/owl-carousel.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="/css/datepicker.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/udf.css">
+
+    <!-- AOS CSS -->
+    <link href="/css/aos.css" rel="stylesheet">
+
+    <!-- Fotorama-->
+    <link href="/css/fotorama.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Header Area -->
+<header class="header">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-5 col-12">
+                    <ul class="top-link">
+                        <li><a th:href="@{/termOfUse(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
+                        <li><a th:href="@{/termOfUse(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Topbar -->
+    <!-- Header Inner -->
+    <div class="header-inner">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                            <a href="homepage.html" th:href="@{/}"><img src="/img/Homepage/dermasign_logo.png" alt="#"
+                                                                        width=175 height=25></a>
+                        </div>
+                        <!-- End Logo -->
+                        <!-- Mobile Nav -->
+                        <div class="mobile-nav"></div>
+                        <!-- End Mobile Nav -->
+                    </div>
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li class="active"><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
+                                    <li >
+                                        <a th:href="@{/products}">
+                                            <span th:utext="#{Header.product}"></span>
+                                            <i class="icofont-rounded-down"></i>
+                                        </a>
+                                        <div class="dropdown-background"></div>
+                                        <ul class="dropdown">
+                                            <!-- 第一列：Product Type -->
+                                            <div class="category-column">
+                                                <div class="category-title" style=" color: black; font-size: 1.25em" th:text="#{Header.category1}">Product Type</div>
+                                                <ul class="products-list" th:with="text1=#{Header.category1}">
+                                                    <li th:with="text2=#{Header.category1.type1}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Professional Clean&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Professional Clean</a></li>
+                                                    <li th:with="text2=#{Header.category1.type2}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Refreshing and Hydrating&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Refreshing and Hydrating</a></li>
+                                                    <li th:with="text2=#{Header.category1.type3}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Eye Care&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Eye Care</a></li>
+                                                    <li th:with="text2=#{Header.category1.type4}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Moisturizing Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Moisturizing Essence</a></li>
+                                                    <li th:with="text2=#{Header.category1.type5}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Acne Removing Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Acne Removing Essence</a></li>
+                                                    <li th:with="text2=#{Header.category1.type6}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Repair Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Repair Essence</a></li>
+                                                    <li th:with="text2=#{Header.category1.type7}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Anti-aging Essence&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-aging Essence</a></li>
+                                                    <li th:with="text2=#{Header.category1.type8}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Repair Cream&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Repair Cream</a></li>
+                                                    <li th:with="text2=#{Header.category1.type9}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Conditioning Mask&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Conditioning Mask</a></li>
+                                                    <li th:with="text2=#{Header.category1.type10}"><a href="#" th:href="@{'/products?topClass=Product Type&type=Sun Protection&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Sun Protection</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- 第二列：Skin Problem -->
+                                            <div class="category-column">
+                                                <div class="category-title" style="color: black; font-size: 1.25em" th:text="#{Header.category2}">Skin Problem</div>
+                                                <ul class="skin-concern-list" th:with="text1=#{Header.category2}">
+                                                    <li th:with="text2=#{Header.category2.type1}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Sensitive&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Sensitive</a></li>
+                                                    <li th:with="text2=#{Header.category2.type2}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Acne&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Acne</a></li>
+                                                    <li th:with="text2=#{Header.category2.type3}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Stain&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Stain</a></li>
+                                                    <li th:with="text2=#{Header.category2.type4}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Dryness&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Dryness</a></li>
+                                                    <li th:with="text2=#{Header.category2.type5}"><a href="#" th:href="@{'/products?topClass=Skin Problem&type=Anti-aging&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-aging</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- 第三列：Nursing Stage -->
+                                            <div class="category-column">
+                                                <div class="category-title" style="color: black; font-size: 1.25em" th:text="#{Header.category3}">Nursing Stage</div>
+                                                <ul class="ingredients-list" th:with="text1=#{Header.category3}">
+                                                    <li th:with="text2=#{Header.category3.type1}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Barrier Repair&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Barrier Repair</a></li>
+                                                    <li th:with="text2=#{Header.category3.type2}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Verbesserung&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Verbesserung</a></li>
+                                                    <li th:with="text2=#{Header.category3.type3}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Optimierung&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Optimierung</a></li>
+                                                    <li th:with="text2=#{Header.category3.type4}"><a href="#" th:href="@{'/products?topClass=Nursing Stage&type=Anti-Aging&text1=' + ${text1} + '&text2=' + ${text2}}" th:text="${text2}">Anti-Aging</a></li>
+                                                </ul>
+                                            </div>
+                                        </ul>
+
+
+                                    </li>
+                                    <li><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
+                                    </li>
+                                    <li><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
+                                    <li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
+                                    <!--											<li><a href="#" th:href="@{/news}" th:text="#{Header.news}">News </a></li>-->
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-2 col-12">
+                        <div class="get-quote">
+                            <a href="#" th:href="@{/contact}" th:text="#{Header.contact}" class="btn">CONTACT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Terms Of Use</h2>
+                    <ul class="bread-list">
+                        <li th:text="#{Header.homepage}">Home</li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li >Terms Of Use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
+<!-- Single News -->
+<section class="news-single section">
+    <div class="container">
+        <div class="col-12">
+            <div class="news-text mt-5">
+                <p style="font-size:16px" th:text="#{termOfUse.text1}">The management and protection of the personal data of the visitor/user of www.dermasign.de and www.dermasign.com is subject to the terms of this announcement, as well as to the provisions of National, Community, and International law regarding the protection of individuals from the processing of personal data, as applicable.</p>
+                <p style="font-size:16px" th:utext="#{termOfUse.text2}">Any future relevant regulation will also be included in this announcement. In any case, <strong>DermaSign GmbH</strong> reserves the right to change the terms of protection of personal data in accordance with the applicable legal framework.</p>
+                <p style="font-size:16px" th:text="#{termOfUse.text3}">Accordingly, these privacy terms may be revised and updated at any time and without notice. Users of www.dermasign.de and www.dermasign.com are encouraged to periodically check these terms for any changes, as continued use of www.dermasign.de and www.dermasign.com implies acceptance of all possible modifications.</p>
+                <p style="font-size:16px" th:utext="#{termOfUse.text4}"><strong>DermaSign GmbH</strong> collects personal data of visitors/users of www.dermasign.de and www.dermasign.com only when they voluntarily provide it for the purpose of electronic communication or to subscribe to receive informative emails. Personal data is information that can be used to identify or contact an individual, as well as other information relating to that individual.</p>
+
+                <hr>
+                <h4 th:text="#{termOfUse.text5}">Cookies Policy</h4>
+                <br>
+                <p style="font-size:16px" th:utext="#{termOfUse.text6}"><strong>DermaSign GmbH</strong> may collect information about the users of www.dermasign.de and www.dermasign.com using technologies such as cookies and/or tracking Internet Protocol (IP) addresses.</p>
+
+                <p style="font-size:16px" th:text="#{termOfUse.text7}">Cookies are small text files that are stored on the hard drive of each visitor/user and do not access any documents or files from their computer. They are used to facilitate the visitor/user's access to specific services and/or pages of www.dermasign.de and www.dermasign.com for statistical purposes and to identify areas that are useful or popular. This data may also include the type of browser used by the visitor/user, the type of computer, its operating system, internet service providers, and other such information. Additionally, www.dermasign.de and www.dermasign.com’s information system automatically collects information about the sites visited by its users and about the links to third-party websites they may choose through www.dermasign.de and www.dermasign.com.</p>
+
+                <p style="font-size:16px" th:text="#{termOfUse.text8}">Through the cookie consent mechanism that appears at the bottom of the page, you can manage cookie preferences. While most browsers automatically accept cookies, you can choose whether or not to accept them through your browser settings (often found in your browser's Tools or Preferences menu). You can also delete cookies from your device at any time. However, please note that disabling cookies may affect the full functionality of some features of our website.</p>
+
+                <p style="font-size:16px" th:text="#{termOfUse.text9}">www.dermasign.de and www.dermasign.com may offer functionality to allow sharing through third-party social networking applications, such as Facebook’s Like button or Twitter widget. These social networking applications may collect and use information about your use of our websites. Any personal information shared via these social networks may be collected and used by other members of the social networking application and is governed by the privacy policies of the companies providing the application. We have no control over or responsibility for how these companies handle your information.</p>
+
+                <p style="font-size:16px" th:text="#{termOfUse.text10}">In addition, www.dermasign.de and www.dermasign.com may host blogs, forums, crowdsourcing, or other services (collectively referred to as "social media features"). These features aim to facilitate information and content sharing. Any personal information shared via these social media features may be disclosed to other users unless otherwise stated. We may have limited control over how these features handle your personal data.</p>
+
+                <p style="font-size:16px" th:utext="#{termOfUse.text11}">Publishing personal data of third parties (such as images) through www.dermasign.de and www.dermasign.com is illegal unless prior consent has been obtained from the data subjects. www.dermasign.de and www.dermasign.com may contain links to other websites operated by third parties (natural or legal persons). <strong>DermaSign GmbH</strong> is not responsible for the privacy practices or content of these third-party websites.</p>
+
+                <hr>
+                <h4 th:utext="#{termOfUse.text12}">Limitation of Liability of <strong>DermaSign GmbH</strong> – Disclaimer</h4>
+                <br>
+
+                <p style="font-size:16px" th:utext="#{termOfUse.text13}">The content of www.dermasign.de and www.dermasign.com is provided "as is," and <strong>DermaSign GmbH</strong> makes no guarantees, express or implied, regarding the completeness, accuracy, timeliness, merchantability, non-infringement, or suitability for any purpose.</p>
+
+                <p style="font-size:16px" th:utext="#{termOfUse.text14}">Under no circumstances, including negligence, is <strong>DermaSign GmbH</strong> liable for any damage suffered by the visitor/user as a result of using the pages, services, options, or content of www.dermasign.de and www.dermasign.com. Use of the website is made at the visitor's/user's discretion and with full knowledge of these terms. Furthermore, <strong>DermaSign GmbH</strong> does not guarantee that the pages, services, and content will be provided without interruption or errors, nor does it guarantee that any errors will be corrected immediately or that all queries will be answered. <strong>DermaSign GmbH</strong> also does not guarantee that www.dermasign.de and www.dermasign.com or related servers are free from viruses or other harmful components. Any cost for corrections or services is borne by the visitor/user and not by <strong>DermaSign GmbH</strong>.</p>
+
+                <hr>
+                <h4 th:text="#{termOfUse.text15}">Use of Links to Third-Party Websites</h4>
+                <br>
+
+                <p style="font-size:16px" th:utext="#{termOfUse.text16}">www.dermasign.de and www.dermasign.com provide access to third-party websites through appropriate links. These links are provided solely for the convenience of visitors/users. The respective websites are subject to their own terms of use. The inclusion of links does not imply endorsement of the content of these third-party websites by DermaSign GmbH, which is not responsible for their content, privacy practices, or accuracy. Visitors/users who choose to access third-party websites via links from www.dermasign.de and www.dermasign.com do so at their own risk.</p>
+
+                <hr>
+                <h4 th:text="#{termOfUse.text17}">Applicable Law and Other Terms</h4>
+                <br>
+
+                <p style="font-size:16px" th:text="#{termOfUse.text18}">The above terms and conditions of use of www.dermasign.de and www.dermasign.com, as well as any modifications or changes, are governed by German law, Community law, and relevant International Treaties. Any provision of these terms that contradicts the legal framework or becomes invalid will automatically cease to apply and be removed without affecting the validity of the remaining terms.</p>
+                <p style="font-size:16px" th:text="#{termOfUse.text19}">This constitutes the entire agreement between the operator of www.dermasign.de and www.dermasign.com and the visitor/user of its pages and services. No modification of these terms will be considered part of the agreement unless made in writing and incorporated herein.</p>
+                <p style="font-size:16px" th:text="#{termOfUse.text20}">It is hereby expressly agreed that any disputes arising from the application of these terms or the general use of www.dermasign.de and www.dermasign.com by visitors or users, if not resolved amicably, are governed by German law and are subject to the jurisdiction of the courts of Aachen.</p>
+                <p style="font-size:16px" th:text="#{termOfUse.text21}">For any communication with the operator of www.dermasign.de or www.dermasign.com, please send an email to info@dermasign.de.</p>
+                <p style="font-size:16px" th:text="#{termOfUse.text22}">If you encounter any legal or ethical issues regarding the content, particularly with regard to intellectual property rights, please notify us at info@dermasign.de.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--/ End Single News -->
+
+<!-- Footer Area -->
+<footer id="footer" class="footer">
+    <!-- Footer Top -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2 th:text="#{Home.footer.aboutUs.title}">About Us</h2>
+                        <p th:text="#{Home.footer.aboutUs.text}">We have been working on skin barrier repair for more than 50 years, and have found a way to solve skin problems and keep young with excellent results.</p>
+                        <!-- Social -->
+                        <ul class="social">
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-vimeo"></i></a></li>
+                            <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                        </ul>
+                        <!-- End Social -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer f-link">
+                        <h2 th:text="#{Home.footer.quickLinks.title}">Quick Links</h2>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <ul>
+                                    <li><a href="#" th:href="@{/}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.home}">Home</span></a></li>
+                                    <li><a href="#" th:href="@{/about}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.aboutUs}">About Us</span></a></li>
+                                    <li><a href="#" th:href="@{/products}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.products}">Products</span></a></li>
+                                    <li><a href="#" th:href="@{/blogs-overview}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.blogs}">Blogs</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <ul>
+                                    <li><a href="#" th:href="@{/pro}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.forPro}">For Pro</span></a></li>
+                                    <li><a href="#" th:href="@{/edu}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.education}">Education</span></a></li>
+                                    <li><a href="#" th:href="@{/contact}"><i class="fa fa-caret-right" aria-hidden="true"></i><span th:text="#{Home.footer.quickLinks.contactUs}">Contact Us</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2 th:text="#{Home.footer.contactUs.title}">Contact Us</h2>
+                        <p th:text="#{Home.footer.contactUs.text}">We are committed to ensuring your satisfaction and are ready to offer guidance, information, and support every step of the way.</p>
+                        <br>
+                        <div class="media">
+                            <i class="fa fa-map-marker"> </i>
+                            <div class="media-body ml-3">
+                                <h6 style="color: white;" th:text="#{Home.footer.contactUs.addressTitle}">Address</h6>
+                                <span >Monheimsallee 72, Victoria 3000 Australia</span >
+                            </div>
+                        </div>
+                        <div class="media">
+                            <i class="fa fa-envelope-o"></i>
+                            <div class="media-body ml-3">
+                                <h6 style="color: white;" th:text="#{Home.footer.contactUs.questionsTitle}">Have any questions?</h6>
+                                <a href="mailto:dermasign@outlook.com" >dermasign@outlook.com</a>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <i class="fa fa-phone"></i>
+                            <div class="media-body ml-3">
+                                <h6 style="color: white;" th:text="#{Home.footer.contactUs.phoneTitle}">Call us</h6>
+                                <a href="tel:+4915164659752" > +49 (0) 151 6465 9752</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2 th:text="#{Home.footer.newsletter.title}">Newsletter</h2>
+                        <p th:text="#{Home.footer.newsletter.text}">By subscribing to our mailing list you will always be updated with the latest news from us.</p>
+                        <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                            <input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
+                            <button class="button"><i class="icofont icofont-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Footer Top -->
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="copyright-content" style="display: flex; justify-content: space-between; align-items: center;">
+                        <p class="mb-0">&copy; 2024 All Rights Reserved. Design by
+                            <a href="https://www.linkedin.com/in/yixin-peng-babaa81ba/" target="_blank" class="fh5-link">Yixin Peng</a>
+                        </p>
+                        <p class="mb-0">
+                            <a href="#" style="color: white;" th:href="@{/termOfUse}" th:text="#{Home.footer.termsOfUse}">Terms Of Use</a>
+                            <a href="#" style="color: white; margin-left: 15px;" th:href="@{/datenschutz}" th:text="#{Home.footer.privacySecurity}">Privacy & Security Statement</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+<!-- jquery Min JS -->
+<script src="/js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="/js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="/js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="/js/easing.js"></script>
+<!-- Color JS -->
+<script src="/js/colors.js"></script>
+<!-- Popper JS -->
+<script src="/js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="/js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="/js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="/js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="/js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="/js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="/js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="/js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="/js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="/js/steller.js"></script>
+<!-- Wow JS -->
+<script src="/js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="/js/main.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>

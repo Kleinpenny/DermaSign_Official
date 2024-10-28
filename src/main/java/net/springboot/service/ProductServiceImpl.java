@@ -1,8 +1,11 @@
 package net.springboot.service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
-
+import net.springboot.model.Product;
+import net.springboot.repository.ProductRepository;
+import net.springboot.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,28 +13,21 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import net.springboot.model.Product;
-import net.springboot.repository.ProductRepository;
-
 @Service
 public class ProductServiceImpl implements ProductService {
-
     @Autowired
     private ProductRepository productRepository;
 
-    @Override
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return this.productRepository.findAll();
     }
 
-    @Override
     public void saveProduct(Product product) {
         this.productRepository.save(product);
     }
 
-    @Override
     public Product getProductById(long id) {
-        Optional<Product> optional = productRepository.findById(id);
+        Optional<Product> optional = this.productRepository.findById(Long.valueOf(id));
         Product product = null;
         if (optional.isPresent()) {
             product = optional.get();
@@ -41,17 +37,26 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
-    @Override
     public void deleteProductById(long id) {
-        this.productRepository.deleteById(id);
+        this.productRepository.deleteById(Long.valueOf(id));
     }
 
-    @Override
     public Page<Product> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
-        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
-                Sort.by(sortField).descending();
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(new String[] { sortField }).ascending() : Sort.by(new String[] { sortField }).descending();
+        PageRequest pageRequest = PageRequest.of(pageNo - 1, pageSize, sort);
+        return this.productRepository.findAll((Pageable)pageRequest);
+    }
 
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
-        return this.productRepository.findAll(pageable);
+    public Page<Product> typeFindPaginated(int pageNo, int pageSize, String topClass, String type) {
+        PageRequest pageRequest = PageRequest.of(pageNo - 1, pageSize, Sort.by(new String[] { "id" }).ascending());
+        if (Objects.equals(topClass, "all"))
+            return this.productRepository.findAll((Pageable)pageRequest);
+        if (Objects.equals(topClass, "Product Type"))
+            return this.productRepository.findByProductTypeContaining(type, (Pageable)pageRequest);
+        if (Objects.equals(topClass, "Skin Problem"))
+            return this.productRepository.findBySkinProblemContaining(type, (Pageable)pageRequest);
+        if (Objects.equals(topClass, "Nursing Stage"))
+            return this.productRepository.findByNursingStageContaining(type, (Pageable)pageRequest);
+        return this.productRepository.findAll((Pageable)pageRequest);
     }
 }

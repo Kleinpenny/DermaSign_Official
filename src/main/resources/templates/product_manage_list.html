@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management System</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<a class="btn btn-sm" th:href="@{/}">HomePage</a>
+<div class="container my-2">
+    <h1 style="font-size:5vw">Products List</h1>
+
+    <a th:href = "@{/productNewForm}" class="btn btn-primary btn-sm mb-3"> Add Product </a>
+
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Product ID</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=productName&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Product Name</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=productType&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Product Type</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=skinProblem&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Skin Problem</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=nursingStage&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Nursing Stage</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=professional&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    For Professionals</a>
+            </th>
+            <th>
+                <a th:href="@{'/product_page/' + ${currentPage} + '?sortField=picName&sortDir=' + ${reverseSortDir}}" style="font-size:1vw">
+                    Picture Name</a>
+            </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.productType}"></td>
+            <td th:text="${product.skinProblem}"></td>
+            <td th:text="${product.nursingStage}"></td>
+            <td th:text="${product.professional}"></td>
+            <td th:text="${product.picName}"></td>
+            <td> <a th:href="@{/productUpdateForm/{id}(id=${product.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if = "${totalPages > 1}">
+        <div class = "row col-sm-10">
+            <div class = "col-sm-2">
+                Total Rows: [[${totalItems}]]
+            </div>
+            <div class = "col-sm-3">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/product_page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+					</span>
+            </div>
+            <div class = "col-sm-1">
+                <a th:if="${currentPage > 1}" th:href="@{'/product_page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
+                <span th:unless="${currentPage > 1}">Previous</span>
+            </div>
+
+            <div class = "col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{'/product_page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+                <span th:unless="${currentPage < totalPages}">Next</span>
+            </div>
+
+            <div class="col-sm-1">
+                <a th:if="${currentPage < totalPages}" th:href="@{'/product_page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+                <span th:unless="${currentPage < totalPages}">Last</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

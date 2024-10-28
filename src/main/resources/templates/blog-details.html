@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html class="no-js" lang="zxx">
 <head>
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Document title -->
-	<title th:text="#{Contact.title}">DermaSign</title>
+	<title th:text="#{NewsDetails.title}">DermaSign</title>
 
 	<!-- Favicon -->
 	<link rel="icon" href="#">
@@ -46,7 +46,6 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/responsive.css">
 	<link rel="stylesheet" href="/css/udf.css">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
 	<!-- AOS CSS -->
 	<link href="/css/aos.css" rel="stylesheet">
@@ -66,8 +65,8 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-5 col-12">
 					<ul class="top-link">
-						<li><a th:href="@{/contact(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
-						<li><a th:href="@{/contact(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
+						<li><a th:href="@{/blog-details(localeData='de_DE')}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
+						<li><a th:href="@{/blog-details(localeData='en_US')}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -95,8 +94,8 @@
 						<div class="main-menu">
 							<nav class="navigation">
 								<ul class="nav menu">
-									<li ><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
-									<li >
+									<li class="active"><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
+									<li>
 										<a th:href="@{/products}">
 											<span th:utext="#{Header.product}"></span>
 											<i class="icofont-rounded-down"></i>
@@ -170,108 +169,83 @@
 <!-- End Header Area -->
 
 
-<!-- Start Contact Us -->
-<section class="contact-us section">
-	<div class="container">
-		<div class="inner">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="contact-us-left">
-						<!--Start Google-map -->
-						<div id="myMap"></div>
-						<!--/End Google-map -->
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="contact-us-form">
-						<h2 th:text="#{Contact.text1}">Contact With Us</h2>
-						<p th:text="#{Contact.text2}">If you have any questions please feel free to contact with us.</p>
-						<!-- Form -->
-						<form class="form" method="post" action="/send-email">
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="name" th:placeholder="#{Contact.text3}" placeholder="Name" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="email" name="email" th:placeholder="#{Contact.text4}" placeholder="Email" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="phone" th:placeholder="#{Contact.text5}" placeholder="Phone" required="">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group">
-										<input type="text" name="subject" th:placeholder="#{Contact.text6}" placeholder="Subject" required="">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="form-group">
-										<textarea name="message" th:placeholder="#{Contact.text7}" placeholder="Your Message" required=""></textarea>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group login-btn">
-										<button class="btn" type="submit" th:text="#{Contact.text8}">Send</button>
-									</div>
-									<div class="checkbox">
-										<label class="checkbox-inline" for="2">
-											<input name="news" id="2" type="checkbox">
-											<span th:text="#{Contact.text9}">Do you want to subscribe to our Newsletter?</span>
-										</label>
-									</div>
+	
+		<!-- Start Portfolio Details Area -->
+		<section class="pf-details section">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="inner-content">
+							<div class="image-slider">
+								<div class="pf-details-slider">
+									<img src="/img/news1.png" alt="#" >
+									<img src="/img/news1.png" alt="#">
 								</div>
 							</div>
-						</form>
-						<!--/ End Form -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="contact-info">
-			<div class="row">
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-					<div class="single-info">
-						<i class="icofont icofont-ui-call"></i>
-						<div class="content">
-							<h3>+49(0) 15164659752</h3>
-							<p>info@company.com</p>
-						</div>
-					</div>
-				</div>
-				<!--/End single-info -->
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-				</div>
-				<!--/End single-info -->
-				<!-- single-info -->
-				<div class="col-lg-4 col-12 ">
-					<div class="single-info">
-						<i class="icofont-google-map"></i>
-						<div class="content">
-							<h3>2 Fir e Brigade Road</h3>
-							<p>Chittagonj, Lakshmipur</p>
-						</div>
-					</div>
-				</div>
-				<!--/End single-info -->
-			</div>
-		</div>
-	</div>
-</section>
-<!--/ End Contact Us -->
+							<div class="date">
+								<ul>
+									<li><span>Date :</span> August 07, 2024</li>
+<!--									<li><span>Category :</span> Heart Surgery</li>-->
+<!--									<li><span>Date :</span> April 20, 2019</li>-->
+<!--									<li><span>Client :</span> Suke Agency</li>-->
+<!--									<li><span>Ags :</span> Typo</li>-->
+								</ul>
+							</div>
+							<div class="body-text">
+								<h3>20 GESUNDHEITSVORTEILE VON OLIVEN</h3>
+								<p>Sie schmecken nicht nur wirklich gut, aber wussten Sie, dass Oliven auch für Sie eine große Anzahl von gesundheitlichen Vorteilen haben?</p>
+								<p>Hier sind einige interessante Gesundheitsfakten der Oliven: <br>
+									Oliven beseitigen überschüssiges Cholesterin im Blut.</p>
+								<p>
+									&bull; Oliven kontrollieren den Blutdruck.<br>
+									&bull; Oliven sind eine Quelle von Ballaststoffen als Alternative zu Obst und Gemüse.<br>
+									&bull; Oliven sind eine große Quelle von Vitamin E<br>
+									&bull; Oliven wirken als Antioxidans und schützen die Zellen
+								</p>
+								<p>Oliven reduzieren die Auswirkungen von degenerativen Erkrankungen wie Alzheimer, gutartigen und bösartigen Tumoren, einschließlich weniger schweren Krampfadern und Karies</p>
+								<p>
+									&bull; Oliven helfen, Blutgerinnsel zu verhindern, die zu einem Myokardinfarkt oder tiefer Venenthrombose (DVT) führen könnten.<br>
+									&bull; Oliven schützen Zellmembranen gegen Krankheiten wie Krebs.<br>
+									&bull; Oliven sind ein großer Schutz gegen Anämie.<br>
+									&bull; Oliven fördern die Fruchtbarkeit und das Fortpflanzungssystem.<br>
+									&bull; Oliven spielen eine wichtige Rolle bei der Aufrechterhaltung eines gesunden Immunsystems, insbesondere bei oxidativem Stress und chronischen Viruserkrankungen.<br>
+									&bull; Und nur für den Fall, dass diese Vorteile nicht genug sind, sind sie auch ein großes Aphrodisiakum.<br>
+									&bull; Oliven sind nahrhaft und reich an Mineralstoffen wie Natrium, Kalium, Magnesium, Eisen, Phosphor und Jod.<br>
+									&bull; Oliven liefern essentielle Vitamine und Aminosäuren.<br>
+									&bull; Oliven enthalten Ölsäure, die positive Eigenschaften hat, um das Herz zu schützen.<br>
+									&bull; Oliven enthalten Polyphenole, eine natürliche Chemikalie, die oxidativen Stress im Gehirn reduziert. Wenn Sie also täglich eine Portion Oliven essen, verbessern Sie Ihr Gedächtnis um bis zu 25%.<br>
+									&bull; Nur eine Tasse Oliven ist eine große Quelle von Eisen - 4,4 mg.<br>
+									&bull; Das Essen von Oliven kann das Auftreten von Falten um 20% reduzieren, da sie Ölsäure enthalten, die die Haut weich und gesund hält.<br>
+									&bull; Wenn Sie nur 10 Oliven vor einer Mahlzeit essen, können Sie Ihren Appetit um bis zu 20% reduzieren. Das liegt daran, dass die in den Oliven enthaltenen einfach ungesättigten Fettsäuren den Verdauungsprozess verlangsamen und das Hormon Cholezystokinin stimulieren, ein Hormon, das dem Gehirn Botschaften voller Fülle sendet.<br>
+									&bull; Es tut dies nicht nur, es hilft auch Ihrem Körper, die Produktion von Adiponektin, einer Chemikalie, die Fett für bis zu fünf Stunden nach der Einnahme verbrennt, zu stimulieren.<br>
+									&bull; Für weitere Informationen besuchen Sie die Website der SA Olive Industry Association oder ihre Facebook-Seite.<br>
+									&bull; Presseinformation der SA Olivenölindustrie-Verein.
+								</p>
 
+								<div class="share">
+									<h4>Share Now -</h4>
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="single-link">
+								<a href="#" th:href="@{/blogs-overview}">MORE POSTS<i class="fa fa-long-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Portfolio Details Area -->
 
 <!-- Footer Area -->
 <footer id="footer" class="footer">
 	<!-- Footer Top -->
 	<div class="footer-top">
-		<div class="container" >
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-12">
 					<div class="single-footer">
@@ -374,57 +348,48 @@
 </footer>
 <!--/ End Footer Area -->
 
-<!-- jquery Min JS -->
-<script src="/js/jquery.min.js"></script>
-<!-- jquery Migrate JS -->
-<script src="/js/jquery-migrate-3.0.0.js"></script>
-<!-- jquery Ui JS -->
-<script src="/js/jquery-ui.min.js"></script>
-<!-- Easing JS -->
-<script src="/js/easing.js"></script>
-<!-- Color JS -->
-<script src="/js/colors.js"></script>
-<!-- Popper JS -->
-<script src="/js/popper.min.js"></script>
-<!-- Bootstrap Datepicker JS -->
-<script src="/js/bootstrap-datepicker.js"></script>
-<!-- Jquery Nav JS -->
-<script src="/js/jquery.nav.js"></script>
-<!-- Slicknav JS -->
-<script src="/js/slicknav.min.js"></script>
-<!-- ScrollUp JS -->
-<script src="/js/jquery.scrollUp.min.js"></script>
-<!-- Niceselect JS -->
-<script src="/js/niceselect.js"></script>
-<!-- Tilt Jquery JS -->
-<script src="/js/tilt.jquery.min.js"></script>
-<!-- Owl Carousel JS -->
-<script src="/js/owl-carousel.js"></script>
-<!-- counterup JS -->
-<script src="/js/jquery.counterup.min.js"></script>
-<!-- Steller JS -->
-<script src="/js/steller.js"></script>
-<!-- Wow JS -->
-<script src="/js/wow.min.js"></script>
-<!-- Magnific Popup JS -->
-<script src="/js/jquery.magnific-popup.min.js"></script>
-<!-- Counter Up CDN JS -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="/js/bootstrap.min.js"></script>
-<!-- Main JS -->
-<script src="/js/main.js"></script>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-	// 设置地图的中心点为 Frankfurt (Main) Hbf
-	var map = L.map('myMap').setView([50.107145, 8.663789], 13); // 设置地图中心点和缩放级别
-
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19
-	}).addTo(map);
-
-	// 在 Frankfurt (Main) Hbf 添加一个标记
-	var marker = L.marker([50.107145, 8.663789]).addTo(map); // 添加一个标记
-</script>
-</body>
+		<!-- jquery Min JS -->
+		<script src="/js/jquery.min.js"></script>
+		<!-- jquery Migrate JS -->
+		<script src="/js/jquery-migrate-3.0.0.js"></script>
+		<!-- jquery Ui JS -->
+		<script src="/js/jquery-ui.min.js"></script>
+		<!-- Easing JS -->
+		<script src="/js/easing.js"></script>
+		<!-- Color JS -->
+		<script src="/js/colors.js"></script>
+		<!-- Popper JS -->
+		<script src="/js/popper.min.js"></script>
+		<!-- Bootstrap Datepicker JS -->
+		<script src="/js/bootstrap-datepicker.js"></script>
+		<!-- Jquery Nav JS -->
+		<script src="/js/jquery.nav.js"></script>
+		<!-- Slicknav JS -->
+		<script src="/js/slicknav.min.js"></script>
+		<!-- ScrollUp JS -->
+		<script src="/js/jquery.scrollUp.min.js"></script>
+		<!-- Niceselect JS -->
+		<script src="/js/niceselect.js"></script>
+		<!-- Tilt Jquery JS -->
+		<script src="/js/tilt.jquery.min.js"></script>
+		<!-- Owl Carousel JS -->
+		<script src="/js/owl-carousel.js"></script>
+		<!-- counterup JS -->
+		<script src="/js/jquery.counterup.min.js"></script>
+		<!-- Steller JS -->
+		<script src="/js/steller.js"></script>
+		<!-- Wow JS -->
+		<script src="/js/wow.min.js"></script>
+		<!-- Magnific Popup JS -->
+		<script src="/js/jquery.magnific-popup.min.js"></script>
+		<!-- Counter Up CDN JS -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="/js/bootstrap.min.js"></script>
+		<!-- Main JS -->
+		<script src="/js/main.js"></script>
+		<script>
+			AOS.init();
+		</script>
+	</body>
 </html>

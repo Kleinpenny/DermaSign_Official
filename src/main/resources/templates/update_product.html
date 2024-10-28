@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Product Management System</title>
+<link rel="stylesheet"
+	  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	  crossorigin="anonymous">
+	<style>
+		.dynamic-textarea {
+			overflow: hidden;
+			resize: none;
+			transition: height 0.2s ease;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>Product Management System</h1>
+	<hr>
+	<h2>Save Product</h2>
+
+		<form action="#" th:action="@{/saveProduct}" th:object="${product}"
+			method="POST">
+			
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+
+			<label for="productName">Product Name</label>
+			<textarea id="productName" class="dynamic-textarea form-control mb-4 col-4" th:field="*{productName}"
+					  placeholder="Name" rows="1"></textarea>
+
+			<label for="productType">Select Product Type</label>
+			<select id="productType" th:field="*{productType}" class="form-control mb-4 col-4">
+				<option value=""> </option>
+				<option value="Professional Clean">Professional Clean</option>
+				<option value="Refreshing and Hydrating">Refreshing and Hydrating</option>
+				<option value="Eye Care">Eye Care</option>
+				<option value="Moisturizing Essence">Moisturizing Essence</option>
+				<option value="Acne Removing Essence">Acne Removing Essence</option>
+				<option value="Repair Essence">Repair Essence</option>
+				<option value="Anti-aging Essence">Anti-aging Essence</option>
+				<option value="Repair Cream">Repair Cream</option>
+				<option value="Conditioning Mask">Conditioning Mask</option>
+				<option value="Sun Protection">Sun Protection</option>
+			</select>
+
+			<label for="skin">Select Skin Problem</label>
+			<select id="skin" th:field="*{skinProblem}" class="form-control mb-4 col-4">
+				<option value=""> </option>
+				<option value="Sensitive">Sensitive</option>
+				<option value="Acne">Acne</option>
+				<option value="Stain">Stain</option>
+				<option value="Dryness">Dryness</option>
+				<option value="Anti-aging">Anti-aging</option>
+				<option value="Acne, Stain, Dryness">Acne, Stain, Dryness</option>
+				<option value="Stain, Dryness">Stain, Dryness</option>
+				<option value="Sensitive, Acne, Stain">Sensitive, Acne, Stain</option>
+				<option value="Sensitive, Dryness">Sensitive, Dryness</option>
+				<option value="Stain, Dryness, Anti-aging">Stain, Dryness, Anti-aging</option>
+				<option value="Sensitive, Stain, Dryness, Anti-aging">Sensitive, Stain, Dryness, Anti-aging</option>
+			</select>
+
+			<label for="nursing">Select Nursing Stage</label>
+			<select id="nursing" th:field="*{nursingStage}" class="form-control mb-4 col-4">
+				<option value=""> </option>
+				<option value="Barrier Repair">Barrier Repair</option>
+				<option value="Verbesserung">Verbesserung</option>
+				<option value="Optimierung">Optimierung</option>
+				<option value="Anti-Aging">Anti-Aging</option>
+			</select>
+
+			<label for="professional">Whether For Professionals?</label>
+			<select  id="professional" th:field="*{professional}" class="form-control mb-4 col-4">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
+
+
+			<label for="descriptionEn">Description in English</label>
+			<textarea id="descriptionEn" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Description in English" th:field="*{descriptionEn}" rows="1"></textarea>
+
+			<label for="descriptionDe">Description in Deutsch</label>
+			<textarea id="descriptionDe" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Description in Deutsch" th:field="*{descriptionDe}" rows="1"></textarea>
+
+			<label for="ingredientsEn">Ingredients in English</label>
+			<textarea id="ingredientsEn" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Ingredients in English" th:field="*{ingredientsEn}" rows="1"></textarea>
+
+			<label for="ingredientsDe">Ingredients in Deutsch</label>
+			<textarea id="ingredientsDe" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Ingredients in Deutsch" th:field="*{ingredientsDe}" rows="1"></textarea>
+
+			<label for="volume">Volume</label>
+			<textarea id="volume" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Volume" th:field="*{volume}" rows="1"></textarea>
+
+			<label for="usageEn">Usage in English</label>
+			<textarea id="usageEn" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Usage in English" th:field="*{usageEn}" rows="1"></textarea>
+
+			<label for="usageDe">Usage in Deutsch</label>
+			<textarea id="usageDe" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Usage in Deutsch" th:field="*{usageDe}" rows="1"></textarea>
+
+			<label for="picPath">Picture Name</label>
+			<textarea id="picPath" class="dynamic-textarea form-control mb-4 col-4"
+					  placeholder="Picture Local Path" th:field="*{picName}" rows="1"></textarea>
+
+			<label for="benefitEn">Benefit in English</label>
+			<textarea id="benefitEn" class="dynamic-textarea form-control mb-4 col-4"
+					  th:field="*{benefitEn}" placeholder="Benefit in English" rows="1"></textarea>
+
+			<label for="benefitDe">Benefit in Deutsch</label>
+			<textarea id="benefitDe" class="dynamic-textarea form-control mb-4 col-4"
+					  th:field="*{benefitDe}" placeholder="Benefit in Deutsch" rows="1"></textarea>
+
+			<label for="suitableEn">Suitable in English</label>
+			<textarea id="suitableEn" class="dynamic-textarea form-control mb-4 col-4"
+					  th:field="*{suitableEn}" placeholder="Suitable in English" rows="1"></textarea>
+
+			<label for="suitableDe">Suitable in Deutsch</label>
+			<textarea id="suitableDe" class="dynamic-textarea form-control mb-4 col-4"
+					  th:field="*{suitableDe}" placeholder="Suitable in Deutsch" rows="1"></textarea>
+
+			<label for="dosage">Dosage</label>
+			<textarea id="dosage" class="dynamic-textarea form-control mb-4 col-4"
+					  th:field="*{dosage}" placeholder="Dosage" rows="1"></textarea>
+				
+			<button type="submit" class="btn btn-info col-2"> Update Product</button>
+		</form>
+		<hr>
+		
+		<a th:href = "@{/product}"> Back to Product List</a>
+	</div>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const textareas = document.querySelectorAll('.dynamic-textarea');
+
+		textareas.forEach(function(textarea) {
+			textarea.addEventListener('input', function() {
+				this.style.height = 'auto';
+				this.style.height = (this.scrollHeight) + 'px';
+			});
+
+			textarea.dispatchEvent(new Event('input'));
+		});
+	});
+</script>
+</body>
+</html>
