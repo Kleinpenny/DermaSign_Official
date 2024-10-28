@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <img src="src/main/resources/static/img/Homepage/dermasign_logo.png" alt="DermaSign Logo" />
+  <img src="dermasign_logo.png" alt="DermaSign Logo" />
 </div>
 
 # 说明文档
