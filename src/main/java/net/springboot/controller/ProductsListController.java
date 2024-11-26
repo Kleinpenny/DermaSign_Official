@@ -19,6 +19,7 @@ public class ProductsListController {
 
     @Autowired
     private ProductService productService;
+
     @GetMapping("/products")
     public String productsPage(
             @RequestParam(value = "pageNo", defaultValue = "1") int pageNo,
@@ -45,6 +46,28 @@ public class ProductsListController {
         return "products";
     }
 
+    @GetMapping("/pro")
+    public String proPage(
+            @RequestParam(value = "pageNo", defaultValue = "1") int pageNo,
+            @RequestParam(value = "topClass", defaultValue = "pro") String topClass,
+            @RequestParam(value = "type", defaultValue = "pro") String type,
+            Model model) {
+        Locale currentLocale = LocaleContextHolder.getLocale();
+        System.out.println(topClass + ' ' + type);
+        int pageSize = 6;
+        Page<Product> page = productService.typeFindPaginated(pageNo, pageSize, topClass, type);
+        List<Product> listProducts = page.getContent();
+
+        model.addAttribute("topClass", topClass);
+        model.addAttribute("type", type);
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("listProducts", listProducts);
+        model.addAttribute("localeData", currentLocale.toString());
+        return "pro";
+    }
+
 
 
 //    ------------------Single Product-----------------------     //
@@ -60,6 +83,7 @@ public class ProductsListController {
 
         // set product as a model attribute to pre-populate the form
         model.addAttribute("product", product);
+        model.addAttribute("professionalSign", product.getProfessional());
 
         // product Ingredient
         String[] splitArray1 = product.getIngredientsEn().split("[、,]");
@@ -80,6 +104,9 @@ public class ProductsListController {
         String[] benefitArrayDe = product.getBenefitDe().replace(".", "").split(";");
         //PicName
         String[] PicArray = product.getPicName().split(";");
+
+        //warning
+
 
         model.addAttribute("ingredientEn", resultListEn);
         model.addAttribute("ingredientDe", resultListDe);

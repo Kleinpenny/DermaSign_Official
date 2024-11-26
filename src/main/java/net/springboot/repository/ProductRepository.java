@@ -19,4 +19,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.nursingStage LIKE %:type%")
     Page<Product> findByNursingStageContaining(@Param("type") String paramString, Pageable paramPageable);
+
+    @Query("SELECT p FROM Product p WHERE p.professional = 'Yes'")
+    Page<Product> findByProfessionalTrue(Pageable pageable);
+
+    @Query("SELECT p FROM Product p WHERE p.professional != 'Yes'")
+    Page<Product> findAllNormalProducts(Pageable pageable);
 }

@@ -95,7 +95,7 @@
 								<nav class="navigation">
 									<ul class="nav menu">
 										<li ><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
-										<li class="active">
+										<li th:classappend="${professionalSign != 'Yes'} ? 'active' : ''">
 											<a th:href="@{/products}">
 												<span th:utext="#{Header.product}"></span>
 												<i class="icofont-rounded-down"></i>
@@ -142,10 +142,8 @@
 													</ul>
 												</div>
 											</ul>
-
-
 										</li>
-										<li><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
+										<li th:classappend="${professionalSign == 'Yes'} ? 'active' : ''"><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
 										</li>
 										<li><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
 										<li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
@@ -196,22 +194,22 @@
 							</tr>
 						</table>
 
-						<table class="single-product-table">
-							<tr>
-								<td><span class="single-product-table-title">PRODUCT TYPE</span></td>
-								<td><p class="single-product-table-text" th:text="${product.productType}">Class aptent taciti.</p></td>
-							</tr>
-							<tr>
-								<td><span class="single-product-table-title">SKIN PROBLEM</span></td>
-								<td><p class="single-product-table-text" th:text="${product.skinProblem}">Class aptent taciti.</p></td>
-							</tr>
-							<tr>
-								<td><span class="single-product-table-title">NURSING STAGE</span></td>
-								<td><p class="single-product-table-text" th:text="${product.nursingStage}">Class aptent taciti.</p></td>
-							</tr>
-						</table>
-
-
+						<div th:if="${professionalSign != 'Yes'}">
+							<table class="single-product-table">
+								<tr>
+									<td><span class="single-product-table-title">PRODUCT TYPE</span></td>
+									<td><p class="single-product-table-text" th:text="${product.productType}">Class aptent taciti.</p></td>
+								</tr>
+								<tr>
+									<td><span class="single-product-table-title">SKIN PROBLEM</span></td>
+									<td><p class="single-product-table-text" th:text="${product.skinProblem}">Class aptent taciti.</p></td>
+								</tr>
+								<tr>
+									<td><span class="single-product-table-title">NURSING STAGE</span></td>
+									<td><p class="single-product-table-text" th:text="${product.nursingStage}">Class aptent taciti.</p></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
 				<br>
@@ -376,7 +374,7 @@
 					<div class="col-lg-12 col-md-12 col-12">
 						<div class="copyright-content" style="display: flex; justify-content: space-between; align-items: center;">
 							<p class="mb-0">&copy; 2024 All Rights Reserved. Design by
-								<a href="https://www.linkedin.com/in/yixin-peng-babaa81ba/" target="_blank" class="fh5-link">DermaSign GmbH</a>
+								<a href="#" target="_blank" class="fh5-link">DermaSign GmbH</a>
 							</p>
 							<p class="mb-0">
 								<a href="#" style="color: white;" th:href="@{/termOfUse}" th:text="#{Home.footer.termsOfUse}">Terms Of Use</a>
@@ -390,6 +388,7 @@
 		<!--/ End Copyright -->
 	</footer>
 	<!--/ End Footer Area -->
+
 
 		<!-- jquery Min JS -->
         <script src="/js/jquery.min.js"></script>

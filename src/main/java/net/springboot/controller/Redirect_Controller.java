@@ -56,11 +56,6 @@ public class Redirect_Controller {
         return "blogs-overview";
     }
 
-    @GetMapping("/pro")
-    public String pro(Model model) {
-        return portal(model);
-    }
-
     @GetMapping("/edu")
     public String edu(Model model) {
         return "education";
@@ -80,12 +75,4 @@ public class Redirect_Controller {
     public ModelAndView handleMissingParameterException(MissingServletRequestParameterException ex) {
         return new ModelAndView("redirect:404");
     }
-
-//---------------------------
-// BACK UP
-
-//    @GetMapping("/login")
-//    public String login(Model model) {
-//        return "login";
-//    }
 }

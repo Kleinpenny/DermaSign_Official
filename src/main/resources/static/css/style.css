@@ -905,6 +905,29 @@ body{
 	color:#fff;
 	border-color:transparent;
 }
+
+.Feautes .single-features .signle-icon img{
+	font-size:50px;
+	color:#1a76d1;
+	position:absolute;
+	left:50%;
+	margin-left:-50px;
+	top:0;
+	height:100px;
+	width:100px;
+	line-height:100px;
+	text-align:center;
+	border:1px solid #dddddd;
+	border-radius:100%;
+	-webkit-transition:all 0.4s ease;
+	-moz-transition:all 0.4s ease;
+	transition:all 0.4s ease;
+}
+.Feautes .single-features:hover .signle-icon img{
+	background:#1A76D1;
+	color:#fff;
+	border-color:transparent;
+}
 .Feautes .single-features h3{
 	padding-top: 128px;
 	color:#2C2D3F;
@@ -1039,6 +1062,7 @@ body{
 	background-position:center;
 	background-repeat:no-repeat;
 	position:relative;
+	filter: grayscale(100%);
 }
 .why-choose .choose-right .video {
 	color: #fff;

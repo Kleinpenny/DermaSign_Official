@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Meta Tags -->
@@ -65,8 +65,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-5 col-12">
                     <ul class="top-link">
-                        <li><a th:href="@{/products(localeData='de_DE', topClass=${topClass}, type=${type}, text1=${text1}, text2=${text2})}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
-                        <li><a th:href="@{/products(localeData='en_US', topClass=${topClass}, type=${type}, text1=${text1}, text2=${text2})}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
+                        <li><a th:href="@{/pro(localeData='de_DE', topClass=${topClass})}"><img src="/img/german-flag.jpg" alt="DE" width="30" height="30"></a></li>
+                        <li><a th:href="@{/pro(localeData='en_US', topClass=${topClass})}"><img src="/img/english-flag.jpg" alt="EN" width="30" height="30"></a></li>
                     </ul>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                             <nav class="navigation">
                                 <ul class="nav menu">
                                     <li ><a href="#" th:href="@{/}" th:text="#{Header.homepage}">Home</a></li>
-                                    <li class="active">
+                                    <li>
                                         <a th:href="@{/products}">
                                             <span th:utext="#{Header.product}"></span>
                                             <i class="icofont-rounded-down"></i>
@@ -145,7 +145,7 @@
 
 
                                     </li>
-                                    <li><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
+                                    <li class="active"><a href="#" th:href="@{/pro}" th:text="#{Header.prof}">For Professionals</a>
                                     </li>
                                     <li><a href="#" th:href="@{/edu}" th:text="#{Header.edu}">Education</a></li>
                                     <li><a href="#" th:href="@{/about}" th:text="#{Header.about}">About Us</a></li>
@@ -174,56 +174,14 @@
         <div class="bread-inner">
             <div class="row">
                 <div class="col-12">
-                    <h2 th:text="#{Products.bread-inner}">Product List</h2>
-                    <ul class="bread-list">
-                        <li th:text="${text1}">Product Type</li>
-                        <li><i class="icofont-simple-right"></i></li>
-                        <li th:text="${text2}">Professional Clean</li>
-                    </ul>
+                    <h2>Professional Products</h2>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- End Breadcrumbs -->
-<section>
-    <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-a">
-                    <h1>Little<br>Bonsai</h1>
-                    <span class="price">$79</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                        <a href="#">View detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-b">
-                    <h1>Tropical<br>Leaf</h1>
-                    <span class="price">$35</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-c">
-                    <h1>Marijuana<br>Chill</h1>
-                    <span class="price">$155</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="news-single section">
     <div class="container">
         <div class="row px-xl-5">
@@ -240,22 +198,9 @@
 
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 class="text-truncate mb-3" style="color:black; font-weight:bold;" th:text="${product.productName}">ATP AUFLADUNG ESSENZ 50 ml</h6>
-
                                 <a href="#" th:href="@{'/single-product/' + ${product.id}}" class="buttonC type--B">
                                     <span class="button__text" th:text="${localeData == 'en_US' ? 'View Details' : 'Details Anzeigen'}">ENTRY</span>
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
-                        <div class="cardC">
-                            <div class="coverC item-a">
-                                <h1>Little<br>Bonsai</h1>
-                                <span class="price">$79</span>
-                                <div class="card-back">
-                                    <a href="#">Add to cart</a>
-                                    <a href="#">View detail</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -265,7 +210,7 @@
                             <ul class="pagination pagination-shop justify-content-center mb-3">
                                 <li class="page-item">
                                     <a class="page-link" aria-label="Previous" th:if="${currentPage > 1}"
-                                       th:href="@{'/products?pageNo=' + ${currentPage - 1} + '&topClass=' + ${topClass} + '&type=' + ${type}}" style="color:black">
+                                       th:href="@{'/pro?pageNo=' + ${currentPage - 1} + '&topClass=' + ${topClass} + '&type=' + ${type}}" style="color:black">
                                         &laquo;
                                     </a>
                                     <span th:unless="${currentPage > 1}" class="page-link" style="color:black">
@@ -275,12 +220,12 @@
                                 <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}"
                                     th:classappend="${currentPage == i} ? 'active'">
                                     <a class="page-link" href="#" style="color:black" th:if="${currentPage != i}"
-                                       th:href="@{'/products?pageNo=' + ${i} + '&topClass=' + ${topClass} + '&type=' + ${type}}">[[${i}]]</a>
+                                       th:href="@{'/pro?pageNo=' + ${i} + '&topClass=' + ${topClass} + '&type=' + ${type}}">[[${i}]]</a>
                                     <a th:unless="${currentPage != i}" class="page-link"
                                        style="color:black">[[${i}]]</a> &nbsp;
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" aria-label="Next" th:if="${currentPage < totalPages}" th:href="@{'/products?pageNo=' + ${currentPage + 1} + '&topClass=' + ${topClass} + '&type=' + ${type}}" style="color:black">
+                                    <a class="page-link" aria-label="Next" th:if="${currentPage < totalPages}" th:href="@{'/pro?pageNo=' + ${currentPage + 1} + '&topClass=' + ${topClass} + '&type=' + ${type}}" style="color:black">
                                         &raquo;
                                     </a>
                                     <span th:unless="${currentPage < totalPages}" class="page-link" style="color:black">

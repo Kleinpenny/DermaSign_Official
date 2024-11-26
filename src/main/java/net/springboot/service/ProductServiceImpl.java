@@ -49,14 +49,16 @@ public class ProductServiceImpl implements ProductService {
 
     public Page<Product> typeFindPaginated(int pageNo, int pageSize, String topClass, String type) {
         PageRequest pageRequest = PageRequest.of(pageNo - 1, pageSize, Sort.by(new String[] { "id" }).ascending());
+        if (Objects.equals(topClass, "pro"))
+            return this.productRepository.findByProfessionalTrue((Pageable)pageRequest);
         if (Objects.equals(topClass, "all"))
-            return this.productRepository.findAll((Pageable)pageRequest);
+            return this.productRepository.findAllNormalProducts((Pageable)pageRequest);
         if (Objects.equals(topClass, "Product Type"))
             return this.productRepository.findByProductTypeContaining(type, (Pageable)pageRequest);
         if (Objects.equals(topClass, "Skin Problem"))
             return this.productRepository.findBySkinProblemContaining(type, (Pageable)pageRequest);
         if (Objects.equals(topClass, "Nursing Stage"))
             return this.productRepository.findByNursingStageContaining(type, (Pageable)pageRequest);
-        return this.productRepository.findAll((Pageable)pageRequest);
+        return this.productRepository.findAllNormalProducts((Pageable)pageRequest);
     }
 }
