@@ -186,52 +186,14 @@
     </div>
 </div>
 <!-- End Breadcrumbs -->
-<section>
-    <div class="row">
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-a">
-                    <h1>Little<br>Bonsai</h1>
-                    <span class="price">$79</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                        <a href="#">View detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-b">
-                    <h1>Tropical<br>Leaf</h1>
-                    <span class="price">$35</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="cardC">
-                <div class="coverC item-c">
-                    <h1>Marijuana<br>Chill</h1>
-                    <span class="price">$155</span>
-                    <div class="card-back">
-                        <a href="#">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="news-single section">
     <div class="container">
         <div class="row px-xl-5">
             <!-- Shop Product Start -->
             <div class="col-lg-12 col-md-12">
                 <div class="row pb-3">
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-4" th:each="product : ${listProducts}">
-                        <div class="card product-item border-0 mb-4">
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-4 " th:each="product : ${listProducts}">
+                        <div class="card product-item border-0 mb-4 article-card">
                             <div class="card-header overflow-hidden bg-transparent border d-flex justify-content-center align-items-center"
                                  style="max-width: 300px; width: 100%; padding-bottom: 100%; position: relative; margin: 0 auto;">
                                 <img class="img-fluid" src="/img/Product/product1.jpg" alt="" th:src="@{|/img/Product/${product.picName}|}"
@@ -244,18 +206,6 @@
                                 <a href="#" th:href="@{'/single-product/' + ${product.id}}" class="buttonC type--B">
                                     <span class="button__text" th:text="${localeData == 'en_US' ? 'View Details' : 'Details Anzeigen'}">ENTRY</span>
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
-                        <div class="cardC">
-                            <div class="coverC item-a">
-                                <h1>Little<br>Bonsai</h1>
-                                <span class="price">$79</span>
-                                <div class="card-back">
-                                    <a href="#">Add to cart</a>
-                                    <a href="#">View detail</a>
-                                </div>
                             </div>
                         </div>
                     </div>

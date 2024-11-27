@@ -184,62 +184,84 @@
 <section class="news-single section">
 	<div class="container">
 		<div class="col-12">
+
 			<div class="news-text mt-5">
 				<h2 style="color:dimgray; text-align: center;">
-					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
-					<span th:utext="#{Edu.newsSingle.text1}">Skin Care Concept</span>
+					<span class="spanE" id="plastic" th:utext="#{Edu.newsSingle.text1}">Skin Care Concept</span>
 				</h2>
 				<hr>
-				<div class="row align-items-center">
-					<div class="col-lg-6 col-md-6 col-12 text-center">
-						<p id="eduText" th:text="#{Edu.newsSingle.text2}">
-							Our skincare philosophy is grounded in the natural biology of the skin, a living and precise organ.
-							We believe the foundation must start with repairing and strengthening the skin’s barrier.
-						</p>
-					</div>
+				<div class="row align-items-center" style="display: flex; /* 使用 Flexbox 布局 */justify-content: center; /* 水平居中 */align-items: center; /* 垂直居中 */">
 					<div class="col-lg-6 col-md-6 col-12 text-center">
 						<div class="single-image">
 							<img src="/img/Education/金字塔理念1.png" alt="#" class="img-fluid">
 						</div>
 					</div>
 				</div>
+				<div class="row align-items-center" style="display: flex; /* 使用 Flexbox 布局 */justify-content: center; /* 水平居中 */align-items: center; /* 垂直居中 */">
+					<div class="col-lg-10 col-md-10 col-12 text-center">
+						<p style="font-size:18px" th:text="#{Edu.newsSingle.text2}">
+							Our skincare philosophy is grounded in the natural biology of the skin, a living and precise organ.
+						</p>
+					</div>
+				</div>
 			</div>
 
 			<div class="news-text mt-5">
 				<h2 style="color:dimgray; text-align: center; margin-bottom: 30px;">
-					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
-					<span th:utext="#{Edu.newsSingle.text3}">Core Advantage</span>
+					<span class="spanE" id="glass" th:utext="#{Edu.newsSingle.text3}">Core Advantage</span>
 				</h2>
 				<hr>
-				<table class="custom-table">
-					<tr>
-						<td style="text-align: center; vertical-align: middle;">
-							<img src="/img/Education/promise.png" alt="No harmful additives" class="table-image" width="100" height="100">
-						</td>
-						<td><p id="eduText" th:text="#{Edu.newsSingle.text4}">Free of steroids, preservatives irritant to skin, propylene glycol, spices, alcohol, mineral oils, petroleum, artificial colors and irritating foaming agents. Some products contain 0% emulsifiers.</p></td>
-					</tr>
-					<tr>
-						<td style="text-align: center; vertical-align: middle;">
-							<img src="/img/Education/gmp.png" alt="Manufactured by GMP standard facilities" class="table-image" width="100" height="100">
-						</td>
-						<td><p id="eduText" th:text="#{Edu.newsSingle.text5}">For more than 50 years, we have strictly adhered to international "Good Manufacturing Practice" (GMP) strictly guarantee product quality.</p></td>
-					</tr>
-					<tr>
-						<td style="text-align: center; vertical-align: middle;">
-							<img src="/img/Education/safe.png" alt="Safe enough for pregnant women and children" class="table-image" width="100" height="100">
-						</td>
-						<td><p id="eduText" th:text="#{Edu.newsSingle.text6}">Suitable for all skin types. All the products and ingredients are safe enough to be used by pregnant women, children and people with sensitive skins.</p></td>
-					</tr>
-				</table>
+				<div class="row align-items-center">
+					<div class="containerE col-lg-4 col-md-4 col-12 text-center">
+						<div class="cardE">
+							<div class="face face1">
+								<div class="content">
+									<img src="/img/Education/promise.png">
+								</div>
+							</div>
+							<div class="face face2">
+								<div class="content">
+									<p th:text="#{Edu.newsSingle.text4}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="containerE col-lg-4 col-md-4 col-12 text-center">
+						<div class="cardE">
+							<div class="face face1">
+								<div class="content">
+									<img src="/img/Education/gmp.png">
+								</div>
+							</div>
+							<div class="face face2">
+								<div class="content">
+									<p th:text="#{Edu.newsSingle.text5}">Free of steroids, preservatives irritant to skin</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="containerE col-lg-4 col-md-4 col-12 text-center">
+						<div class="cardE">
+							<div class="face face1">
+								<div class="content">
+									<img src="/img/Education/safe.png">
+								</div>
+							</div>
+							<div class="face face2">
+								<div class="content">
+									<p th:text="#{Edu.newsSingle.text6}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="news-text mt-5">
 				<h2 style="color:dimgray; text-align: center;">
-					<i class="fa fa-caret-down" style="margin-right: 10px"></i>
-					<span th:utext="#{Edu.newsSingle.text7}">Core Technology</span>
+					<span class="spanE" id="metal" th:utext="#{Edu.newsSingle.text7}">Core Technology</span>
 				</h2>
 				<hr>
-
 				<div class="row align-items-center mt-5">
 					<div class="col-lg-12 col-md-12 col-12 text-left">
 						<div style="background-color: #037db0; border-radius: 50%;padding: 5px 15px;margin-right: 10px;display: inline-block; color: white">NO.1</div>
@@ -322,9 +344,9 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
+
 </section>
 <!--/ End Single News -->
 
