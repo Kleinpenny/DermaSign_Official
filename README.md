@@ -2,48 +2,66 @@
   <img src="dermasign_logo.png" alt="DermaSign Logo" />
 </div>
 
-# 说明文档
 
-## Linux上部署项目
-### 1.更新src:
+
+
+# Documentation
+
+## HOW TO START 
+```bash
+git clone https://github.com/Kleinpenny/DermaSign_Official.git
+
+在编译器端将项目打包
+在项目有pom.xml路径下，执行 
+mvn clean package
+
+运行上传到server的打包好的jar文件
+java -jar Dermasign-Project-0.0.1-SNAPSHOT.jar
+成功运行之后，访问localhost:8080即可
+
+```
+
+
+## Deploying the Project on Linux (Step-by-Step)
+### 1.update linux src:
 ```commandline
 sudo apt update
 ```
-### 2.安装java:
+### 2.Install java:
 ```bash
 sudo apt install openjdk-19-jdk
 ```
-可以安装19版本及以上
+You can also install jdk with version >= 19
 
-### 3.安装mysql
+### 3.Install mysql
 ```bash
 apt-get install mysql-server
 apt-get install mysql-client
 apt-get install libmysqlclient-dev
 ```
-### 4.进入mysql:
+### 4.Log into mysql:
 ```bash
 mysql -u root -p
 ```
-初次使用mysql，没有设置密码，因此直接回车即可
+When using MySQL for the first time, no password is set, so press Enter directly.
 
-### 5.配置mysql
+### 5.Configure mysql
 ```mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PASSWORD';
 FLUSH PRIVILEGES;
 ```
-注意,PASSWORD字段替换为给定的密码
-(填写密码 root初始密码与下面字段定义的一致)
+Note: Replace the PASSWORD field with the specified password. 
+(The initial root password must match the one defined in the following field.)
 ```
 spring.datasource.password = PASSWORD
 ```
-上述字段存在于路径: `src/main/resources/application.properties`
+The above field is located at:  `src/main/resources/application.properties`
 
 
 <details>
-  <summary>OPTIONAL(或者遇到登陆问题)</summary>
+  <summary>OPTIONAL (if you encounter login issues)</summary>
 
-- 若需要更多用户，可以创建例如: ‘admin’ 账户并为其设置密码：
+- If more users are needed, you can create an admin account and set a password for it:
 
 ````mysql
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'PASSWORD';
@@ -51,66 +69,66 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ````
 
-- 如果你忘记了 `root` 或 `admin` 用户的密码，可以尝试以下步骤来重置密码：
-  -  首先停止 MySQL 服务：
-     ```bash
-     sudo systemctl stop mysql
-     ```
-  - 然后以跳过权限表的模式启动 MySQL：
-     ```bash
-     sudo mysqld_safe --skip-grant-tables &
-     ```
-  - 再次登录 MySQL，此时不需要密码：
+- If you forget the password for the root or admin user, you can reset it as follows:
+    - First, stop the MySQL service:
     ```bash
-    mysql -u root
+    sudo systemctl stop mysql
     ```
-  - 登录成功后，重置 `admin` 或 `root` 用户的密码：
-    ```mysql
-    ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
-    FLUSH PRIVILEGES;
-    ```
-  - 最后，重启 MySQL 服务：
-    ```bash
-    sudo systemctl start mysql
-    ```
+    - Start MySQL in skip-grant-tables mode:
+      ```bash
+      sudo mysqld_safe --skip-grant-tables &
+      ```
+    - Log into MySQL without a password:
+     ```bash
+     mysql -u root
+     ```
+    - Once logged in, reset the password for the admin or root user:
+     ```mysql
+     ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+     FLUSH PRIVILEGES;
+     ```
+    - Finally, restart the MySQL service:
+     ```bash
+     sudo systemctl start mysql
+     ```
 </details>
 
-### 6.创建database
+### 6.Create database
 ```mysql
 Create database dermasign;
 ```
 
-### 7.为当前用户设置环境变量
-- 编辑 ~/.bashrc 文件
+### 7.Set Environment Variables for the Current User
+- Edit the ~/.bashrc file:
 ```bash
 nano ~/.bashrc
 ```
-- 在文件的最后添加环境变量
+- Add environment variables at the end of the file:
 ```bash
 export PROJECT_PASSWORD=PASSWORD
 ```
-- 保存并退出编辑器后，使修改立即生效
+- Save and exit the editor, then apply the changes immediately:
 ```bash
 source ~/.bashrc
 ```
 
-### 7.在编译器段将项目打包
-在项目有pom.xml路径下，执行 
+### 8.Package the Project in the Compiler
+Navigate to the directory with pom.xml and run (recommand using IntellJi IDEA):
 ```bash
 mvn clean package
 ```
 
-### 8.运行上传到server的打包好的jar文件
+### 9.Run the Packaged Jar File Uploaded to the Server
 java -jar Dermasign-Project-0.0.1-SNAPSHOT.jar
-成功运行之后，访问localhost:8080即可
+After running successfully, access localhost:8000.
 
 
-## Linux上载入数据库(如果在别的开发环境中有另外的数据)
-### 从MYSQL中导出数据，存储在JSON文件中
-1. 右键要导出的table(products)，选择Tabel Data Export Wizard,导出json文件
-2. 将导出的文件转成utf-8编码(否则数据中会包含未转译的德语和中文字符)
+## Loading a Database on Linux (If You Have Additional Data in Another Environment)
+### Export Data from MySQL to a JSON File
+1. Right-click the table to export (e.g., products), select Table Data Export Wizard, and export the data as a JSON file.
+2. Convert the exported file to UTF-8 encoding (to avoid untranslated German and Chinese characters in the data).
 <details>
-  <summary>OPTIONAL(转译用的python代码)</summary>
+  <summary>(Python Code for Conversion)</summary>
 
 ```python
 import json
@@ -126,47 +144,47 @@ json.dump(json_data, file, ensure_ascii=False, indent=4)
 ```
 </details>
 
-### 服务器上配置python环境
-(其实也可以使用anaconda，这里展示在system-wide配置python的方法)
+### Configure the Python Environment on the Server
+(Alternatively, use Anaconda. Below is a system-wide Python configuration method.)
 ```bash
 sudo apt install python3
 sudo apt install python3-pip
 
-# 设置Python的别名
+# Set up Python aliases
 nano ~/.bashrc
 alias python='python3'
 alias pip='pip3'
 source ~/.bashrc
 
-#创建venv的虚拟环境
+# Create a virtual environment (venv)
 python -m venv myenv
 source myenv/bin/activate
 pip install mysql-connector-python
 
-#退出虚拟环境
+# Exit the virtual environment
 deactivate
 ```
-### 在服务器端执行代码将数据导入MYSQL
+### Execute the Code on the Server to Import Data into MySQL
 
 <details>
-  <summary>Python代码</summary>
+  <summary>Python Code</summary>
 
 ```python
-#如果没有更改数据库的结构的前提下，否则按情况修改下列代码
+# If the database structure has not been modified, otherwise adjust the code as needed.
 
 import json
 import mysql.connector
 
-# 连接到 MySQL 数据库
+# Connect to the MySQL database
 conn = mysql.connector.connect(
   host="localhost",
-  user="root",  # 替换为您的 MySQL 用户名
-  password="Your_PWD",  # 替换为您的 MySQL 密码
+  user="root",  # Replace with your MySQL username
+  password="Your_PWD",  # Replace with your MySQL password
   database="dermasign"
 )
 cursor = conn.cursor()
 
-# 创建 products 表
+# Create the `products` table
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS products (
         id INT PRIMARY KEY,
@@ -191,19 +209,19 @@ cursor.execute("""
     )
 """)
 
-# 打开 JSON 文件并读取数据
+# Open the JSON file and read the data
 with open('products_utf8', 'r', encoding='utf-8') as file:
   data = json.load(file)
 
-  # 遍历 JSON 数据并插入到数据库中
+  # Insert the data into the database
   for item in data:
     sql = """
-        INSERT INTO products 
-        (id, name, description_en, description_de, volume, benefit_en, benefit_de, usage_en, usage_de, 
-         ingredients_en, ingredients_de, pic_name, nursing_stage, product_type, professional, skin_problem, 
-         dosage, suitable_en, suitable_de)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """
+            INSERT INTO products 
+            (id, name, description_en, description_de, volume, benefit_en, benefit_de, usage_en, usage_de, 
+             ingredients_en, ingredients_de, pic_name, nursing_stage, product_type, professional, skin_problem, 
+             dosage, suitable_en, suitable_de)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
     val = (
       item['id'],
       item.get('name'),
@@ -227,15 +245,118 @@ with open('products_utf8', 'r', encoding='utf-8') as file:
     )
     cursor.execute(sql, val)
 
-# 提交事务
+# Commit the transaction
 conn.commit()
 
-# 关闭连接
+# Close the connection
 cursor.close()
 conn.close()
 
-print("数据插入成功！")
+print("Data inserted successfully!")
 ```
 </details>
+
+
+## Appendix
+
+#### About Nginx Configuration
+
+1. First, set up IP address mapping in DNS:
+
+45.147.48.77 www.dermasign.com
+
+45.147.48.77 www.dermasign.de
+
+Both domains point to the server's IP address.
+
+2. Apply for HTTPS certificates for each domain
+
+Use Certbot to automatically apply for free certificates:
+
+```bash
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+```
+
+Apply for the certificates:
+```bash
+sudo certbot --nginx -d www.dermasign.com -d www.dermasign.de
+```
+Follow the prompts to complete the verification. Certbot will automatically update the Nginx configuration to enable HTTPS.
+
+Verify that HTTPS is working:
+```commandline
+curl -I https://www.dermasign.com
+curl -I https://www.dermasign.de
+```
+Ensure the response status code is 200 OK
+
+<details>
+  <summary>Update Nginx conf file and activate</summary>
+
+```commandline
+# Content of the conf file (for reference)
+
+# www.dermasign.com (English website)
+server {
+    listen 443 ssl;
+    server_name www.dermasign.com;
+
+    ssl_certificate /etc/letsencrypt/live/www.dermasign.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.dermasign.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        rewrite ^/$ /?localeData=en_US break;
+        proxy_pass http://localhost:8000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+# www.dermasign.de (German website)
+server {
+    listen 443 ssl;
+    server_name www.dermasign.de;
+
+    ssl_certificate /etc/letsencrypt/live/www.dermasign.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.dermasign.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    location / {
+        proxy_pass http://localhost:8000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+# HTTP -> HTTPS redirection
+server {
+    listen 80;
+    server_name www.dermasign.com www.dermasign.de;
+
+    return 301 https://$host$request_uri;
+}
+
+```
+
+```commandline
+# Restart Nginx:
+sudo nginx -t
+sudo systemctl reload nginx
+
+# Check service status:
+curl -I https://www.dermasign.com
+curl -I https://www.dermasign.de
+
+```
+
+</details>
+
+
 
 
