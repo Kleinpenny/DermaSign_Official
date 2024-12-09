@@ -11,13 +11,15 @@
 ```bash
 git clone https://github.com/Kleinpenny/DermaSign_Official.git
 
-在编译器端将项目打包
-在项目有pom.xml路径下，执行 
+# Package the Project in the Compiler
+# Navigate to the directory with pom.xml and run (recommand using IntellJi IDEA):
 mvn clean package
 
-运行上传到server的打包好的jar文件
+# Run the Packaged Jar File Uploaded to the Server
+
 java -jar Dermasign-Project-0.0.1-SNAPSHOT.jar
-成功运行之后，访问localhost:8080即可
+
+After running successfully, access localhost:8000.
 
 ```
 
@@ -119,7 +121,9 @@ mvn clean package
 ```
 
 ### 9.Run the Packaged Jar File Uploaded to the Server
+```bash
 java -jar Dermasign-Project-0.0.1-SNAPSHOT.jar
+```
 After running successfully, access localhost:8000.
 
 
